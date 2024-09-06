@@ -5,6 +5,9 @@ cmake-*
 build
 
 # Format documentation: https://kicad.org/help/file-formats/
+# Allow a specific folder to be included (e.g., don't ignore 'myFolder')
+!Lab2/
+!anotherFolder/
 
 # Temporary files
 *.000

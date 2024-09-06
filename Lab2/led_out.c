@@ -12,27 +12,9 @@ void led_out_init(){
     bool dir_left = true;
     gpio_init_mask(MASK_9_2);
     gpio_set_dir_out_masked(MASK_9_2);
-    while (true) {
-        gpio_put_masked(MASK_9_2, outval << 2);
-        sleep_ms(100);
-        if (dir_left) {
-            if (outval == 0x80) {
-                dir_left = false;
-                outval = outval >> 1;
-            }
-            else outval = outval << 1;
-        }
-        else {
-            if (outval == 0x1) {
-                dir_left = true;
-                outval = outval << 1;
-            }
-            else outval = outval >> 1;
-        }
-    }
 }
 
-void led_out_write(uint8_t val){
+void led_out_write(uint8_t a){
 
     //write ports
     while (true) {
