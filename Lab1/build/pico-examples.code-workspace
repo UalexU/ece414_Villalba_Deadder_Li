@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Pico-v1.5.1/pico-examples"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdlib.h": "c"
+		}
+	}
+}
