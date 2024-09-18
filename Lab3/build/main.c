@@ -2,36 +2,36 @@
 #include "sw_in.h"
 #include "led_out.h"
 #include <stdint.h>
+#include "debounce_sw1.h"
+#include "debounce_sw2.h"
+#include "timer.h" 
+#include "uart_demo.c"
 
+//we need to add timer for speed control, the UART for printing, the FSM to cnotrol the ball 
+//the debunce_1 and 2
 int main(){
-    bool int1, int2;
-    uint8_t out;
-    sw_in_init();
-    led_out_init();
-    
-    while(1){
-        
-        int1 = sw_in_read1();
-        int2 = sw_in_read2();
-
-        if ( int1 && int2 ){
-            // turn on 8 leds
-            led_out_write(0xFF); 
-        }
-        else if (~int1 && int2){
-             // turn on left most led
-            led_out_write(0x80); 
-        }
-        else if (int1 && ~int2){
-             // turn on right most led
-            led_out_write(0x01); 
+  const uint32_t MASK_9_2 = 0x000003fc;
+    uint32_t outval = 0x1;
+    bool dir_left = true;
+    gpio_init_mask(MASK_9_2);
+    gpio_set_dir_out_masked(MASK_9_2);
+    while (true) {
+        gpio_put_masked(MASK_9_2, outval << 2);
+        sleep_ms(100);
+        if (dir_left) {
+            if (outval == 0x80) {
+                dir_left = false;
+                outval = outval >> 1;
+            }
+            else outval = outval << 1;
         }
         else {
-             // turn off all led
-            led_out_write(0x00); 
+            if (outval == 0x1) {
+                dir_left = true;
+                outval = outval << 1;
+            }
+            else outval = outval >> 1;
         }
-
-        sleep_ms(10); // for optimized cpu performance 
     }
-    return 0; 
+  return 0;
 }

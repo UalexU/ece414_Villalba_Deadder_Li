@@ -11,7 +11,7 @@ void sw_in_init(){
 }
 
 bool sw_in_read1(){
-    return gpio_get(SW1_PIN) == 0;  // Return true if pin is low (switch closed)
+return gpio_get(SW1_PIN) == 0;  // Return true if pin is low (switch closed)
 }
 
 bool sw_in_read2(){
