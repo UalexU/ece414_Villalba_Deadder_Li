@@ -23,7 +23,7 @@ if(btn) {
 DB_State = WAITPUSHL;
 }
 else
-DB_State = MissR;
+DB_State = MISSR;
 break;
 
 case WAITPUSHL
@@ -31,7 +31,7 @@ if(btn1) {
 DB_State = WAITPUSHR;
 }
 else 
-DB State = MissL;
+DB State = MISSL;
 break;
 
 case MISSL
