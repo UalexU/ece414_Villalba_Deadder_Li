@@ -5,7 +5,7 @@
 
 
 
-static enum DB_States {INIT,WAITPUSHL,WAITPUSHR,MissR,MissL} DB_State;
+static enum DB_States {INIT,WAITPUSHL,WAITPUSHR,MISSR,MISSL} DB_State;
 
 void FSM() { 
 
@@ -14,7 +14,7 @@ bool btn1 = debounce_sw1();
 
 switch(DB_State) {
 case INIT:
-if......
+//if......
 else DB_State = WAITPUSHL;
 break;
 
@@ -34,11 +34,11 @@ else
 DB State = MissL;
 break;
 
-case MissL
+case MISSL
 DB_State = INIT;
 break;
 
-case MissR 
+case MISSR
 DB_State = INIT;
 break;
 }
