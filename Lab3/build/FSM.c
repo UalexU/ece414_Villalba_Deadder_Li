@@ -2,7 +2,7 @@
 #include "pico/stdlib.h"
 #include "debounce_sw1.h"
 #include "debounce_sw2.h"
-
+#include "timer.h" 
 
 
 static enum DB_States {INIT,WAITPUSHL,WAITPUSHR,MISSR,MISSL} DB_State;
