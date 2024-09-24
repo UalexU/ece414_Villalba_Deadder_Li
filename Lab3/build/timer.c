@@ -7,6 +7,12 @@
 #define MIN_DELAY 100        // Minimum delay in milliseconds
 #define DELAY_STEP 10        // The amount by which the delay decreases after each run
 
+
+// In your initialization function or at the start of main:
+   srand(time(NULL));  // Seed the random number generator
+   // When deciding the initial server:
+   int initial_server = rand() % 2;  // This will give 0 or 1 randomly
+ 
 uint32_t timer_read() {
     return time_us_32();
 }
