@@ -1,13 +1,3 @@
-/*
- * Simple Timer Module
- * Read & calculate elapsed time with 32-bit timestamps
- * Note that the hardware_time module provides similar
- * functions using 64-bit timestamps
- *
- * ECE 414 - Lafayette College
- * J. Nestor July 2023
- */
-
 #ifndef TIMER_H
 #define TIMER_H
 
@@ -19,5 +9,18 @@ uint32_t timer_read();
 uint32_t timer_elapsed_us(uint32_t t1, uint32_t t2);
 
 uint32_t timer_elapsed_ms(uint32_t t1, uint32_t t2);
+
+// initialize starting delay to 300ms
+void timer_init(void);
+
+// Decrease the current delay after each iteration of the game
+void timer_decrease(void);
+
+// Reset the delay back to 300ms when the game restarts
+void timer_reset(void);
+
+// Check if the timer's delay period has elapsed
+bool timer_elapsed(void);
+
 
 #endif
