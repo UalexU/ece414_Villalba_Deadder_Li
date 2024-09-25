@@ -3,8 +3,8 @@
 #include <stdbool.h>
 #include "pico/stdlib.h"
 
-#define SW1_PIN 16
-#define SW2_PIN 17
+#define SW1_PIN 17
+#define SW2_PIN 16
 
 void sw_in_init();
 bool sw_in_read1();

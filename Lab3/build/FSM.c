@@ -14,8 +14,8 @@ int initial_server;
 
 void fsm_init(void)
 {
-    debounce_sw1_init();
-    debounce_sw2_init();
+    // debounce_sw1_init();
+    // debounce_sw2_init();
     // Use the current timer value to make a pseudo-random decision
     initial_server = led_display_init(); // XOR with last_server to alternate
 
@@ -26,7 +26,7 @@ void fsm_init(void)
 }
 
 // Run the FSM
-void fsm_run(void)
+void fsm_run(int btn1, int btn2)
 {
     
     switch (current_state)
@@ -54,7 +54,7 @@ void fsm_run(void)
         {
             led_display_left_serve(); // Turn on left led
             uart_print_left_serve();
-            if (debounce_sw1_pressed())
+            if (btn1)
             {
                 uart_print_fsm_state("WAITPUSHR");
                 led_display_shift_right();        // Start moving the ball to the right
@@ -73,7 +73,7 @@ void fsm_run(void)
         {   
             uart_print_left_serve();
             led_display_right_serve();
-            if (debounce_sw2_pressed())
+            if (btn2)
             {
                 uart_print_fsm_state("WAITPUSHL");
                 led_display_shift_left();         // Start moving the ball to the left
@@ -93,7 +93,7 @@ void fsm_run(void)
 
     case WAITPUSHL:
         // Ball is moving left, wait for right player press or a miss
-        if (debounce_sw1_pressed())
+        if (btn1)
         {
             // Right player pressed, move the ball to the right
             uart_print_fsm_state("WAITPUSHR");
@@ -111,7 +111,7 @@ void fsm_run(void)
         break;
 
     case WAITPUSHR:
-        if (debounce_sw2_pressed())
+        if (btn2)
         {
             uart_print_fsm_state("WAITPUSHL");
             led_display_shift_left();

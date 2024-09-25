@@ -36,14 +36,14 @@ void led_display_shift_left(void)
 }
 void led_display_left_serve(void)
 {
-    led_out_write(LEFT_LED); // Light the leftmost LED
+    led_out_write(RIGHT_LED); // Light the leftmost LED
 
 }
 
 // Set the right player to serve
 void led_display_right_serve(void)
 {
-    led_out_write(RIGHT_LED); // Light the rightmost LED
+    led_out_write(LEFT_LED); // Light the rightmost LED
 }
 
 // shift the ball from right to left (starting at the rightmost LED)

@@ -3,6 +3,8 @@
 #include "timer.h"
 #include "pico/stdlib.h"
 #include <stdlib.h>
+#include "stdint.h"
+#include "stdbool.h"
 
 #define INITIAL_DELAY 300 // Initial delay in milliseconds
 #define MIN_DELAY 100     // Minimum delay in milliseconds

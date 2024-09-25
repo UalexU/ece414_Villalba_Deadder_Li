@@ -1901,6 +1901,7 @@ CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v
 CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\lock.h"
 CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\stdlib.h"
 CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\alloca.h"
+CMakeFiles\Lab3.dir\led_display.c.obj: timer.h
 
 
 CMakeFiles\Lab3.dir\led_out.c.obj: led_out.c
