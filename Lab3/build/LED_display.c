@@ -65,7 +65,7 @@ void led_display_flash_right_loss(void)
 {
     for (int i = 0; i < 3; i++)
     {
-        led_out_write(RIGHT_LED); // Flash the rightmost LED
+        led_out_write(LEFT_LED); // Flash the rightmost LED
         sleep_ms(500);
         led_out_write(0);
         sleep_ms(500);
@@ -77,7 +77,7 @@ void led_display_flash_left_loss(void)
 {
     for (int i = 0; i < 3; i++)
     {
-        led_out_write(LEFT_LED); // Flash the leftmost LED
+        led_out_write(RIGHT_LED); // Flash the leftmost LED
         sleep_ms(500);           // Wait for 200ms
         led_out_write(0);        // Turn off all LEDs
         sleep_ms(500);           // Wait for 200ms

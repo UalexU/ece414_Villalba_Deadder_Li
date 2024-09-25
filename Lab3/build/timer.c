@@ -48,7 +48,7 @@ void timer_init(void)
 // Decrease the current delay after each iteration
 void timer_decrease(void)
 {
-    if (current_delay > MIN_DELAY)
+    if (current_delay > MIN_DELAY )
     {
         current_delay -= DELAY_STEP; // Decrease the delay by a fixed step which is 100ms defined above
     }
