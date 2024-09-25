@@ -1,94 +1,133 @@
 #include "fsm.h"
 #include "led_display.h"
-#include "debounce_sw1.h"  // Left button debounce
-#include "debounce_sw2.h"  // Right button debounce
+#include "debounce_sw1.h" // Left button debounce
+#include "debounce_sw2.h" // Right button debounce
 #include "pico/stdlib.h"
 #include "timer.h"
-
+#include "uart.h"
+#include "sw_in.h"
+#include "hardware/timer.h"
 // Declare the FSM state variable
 static FSM_State current_state;
-
+bool btn2, btn1;
+int initial_server;
 // Initialize the FSM
-void fsm_init(void) {
-    current_state = INIT;  // Start in the INIT state
-     timer_init();      // initialize the timer
-     uart_print_fsm_state("INIT");
+
+void fsm_init(void)
+{
+    // Use the current timer value to make a pseudo-random decision
+    initial_server = led_display_init(); // XOR with last_server to alternate
+
+    timer_init(); // initialize the timer
+    uart_print_fsm_state("INIT");
+
+    current_state = INIT; // Start in the INIT state
 }
 
-// Run the FSM 
-void fsm_run(void) {
-    bool btn2 = debounce_sw2();
-    bool btn1 = debounce_sw1();
-    // Check the current FSM state
-    switch (current_state) {
-        case INIT:
-            // Wait for either left or right button press to start
-            if (btn1) {
-                uart_print_left_serve(); 
-                // Left player pressed, move to WAITPUSHR state
-                current_state = WAITPUSHR;
-                uart_print_fsm_state("WAITPUSHR");
-                led_display_shift_right();  // Start moving the ball to the right
-                timer_decrease(); // timer decrease 
+// Run the FSM
+void fsm_run(void)
+{
+    //debounce_sw1_tick(); // Read the right button
+    //debounce_sw2_tick(); // Read the left button
 
-            } else if (btn2) {
-                uart_print_right_serve(); 
+    // Check the current FSM state
+    switch (current_state)
+    {
+
+    case INIT:
+        // Wait for either left or right button press to start
+        if (initial_server == 0)
+        {
+            led_display_left_serve(); // Turn on left led
+            if (debounce_sw1_pressed())
+            {
+                
+                uart_print_left_serve(); // print serve left side
+                uart_print_fsm_state("WAITPUSHR");
+                led_display_shift_right(); // Start moving the ball to the right
+                timer_decrease();          // Decrease the timer
+                // Left player pressed, move to WAITPUSHR state
+                initial_server = !initial_server; // Change the server
+                current_state = WAITPUSHR;
+            }
+            else
+        {
+            current_state = INIT;
+        }
+        }
+        else if (initial_server)
+        {
+            led_display_right_serve();
+            if (debounce_sw2_pressed())
+            {
+                uart_print_right_serve();
+                uart_print_fsm_state("WAITPUSHL");
+                led_display_shift_left();         // Start moving the ball to the left
+                timer_decrease();                 // Decrease the timer
+                initial_server = !initial_server; // Change the server
                 // Right player pressed, move to WAITPUSHL state
                 current_state = WAITPUSHL;
-                uart_print_fsm_state("WAITPUSHL");
-                led_display_shift_left();  // Start moving the ball to the left
-                timer_decrease(); //timer decrease 
             }
-            break;
-
-        case WAITPUSHL:
-            // Ball is moving left, wait for right player press or a miss
-            if (btn2) {
-                // Right player pressed, move the ball to the right
-                current_state = WAITPUSHR;
-                uart_print_fsm_state("WAITPUSHR");
-                led_display_shift_right();
-                timer_decrease();
-            } else {
-                // Simulate a miss (no button press in time)
-                current_state = MISSL;
-                art_print_fsm_state("MISSL");
-                uart_print_left_loss();
-            }
-            break;
-
-        case WAITPUSHR:
-            // Ball is moving right, wait for left player press or a miss
-            if (btn1) {
-                // Left player pressed, move the ball to the left
-                current_state = WAITPUSHL;
-                uart_print_fsm_state("WAITPUSHL");
-                led_display_shift_left();
-                timer_decrease();
-            } else {
-                // Simulate a miss (no button press in time)
-                current_state = MISSR;
-                uart_print_fsm_state("MISSR");
-                uart_print_right_loss();
-
-            }
-            break;
-
-        case MISSL:
-            // Left player missed, flash the rightmost LED and reset to INIT
-            led_display_flash_left_loss();
+            else
+        {
             current_state = INIT;
-            uart_print_fsm_state("INIT");
-            timer_reset();  //reset the timer 
-            break;
+        }
+        }
+        
+        break;
 
-        case MISSR:
-            // Right player missed, flash the leftmost LED and reset to INIT
-            led_display_flash_right_loss();
-            current_state = INIT;
-            uart_print_fsm_state("INIT");
-            timer_reset();  //reset the timer 
-            break;
+    case WAITPUSHL:
+        // Ball is moving left, wait for right player press or a miss
+        if (debounce_sw2_pressed())
+        {
+            // Right player pressed, move the ball to the right
+            uart_print_fsm_state("WAITPUSHR");
+            led_display_shift_right();
+            timer_decrease();
+            current_state = WAITPUSHR;
+        }
+        else if (timer_elapsed())
+        {
+            // Simulate a miss if no button press occurred within the time limit
+            uart_print_fsm_state("MISSL");
+            uart_print_left_loss();
+            current_state = MISSL;
+        }
+        break;
+
+    case WAITPUSHR:
+        // Ball is moving right, wait for left player press or a miss
+        if (debounce_sw1_pressed())
+        {
+            uart_print_fsm_state("WAITPUSHL");
+            led_display_shift_left();
+            timer_decrease();
+            // Left player pressed, move the ball to the left
+            current_state = WAITPUSHL;
+        }
+        else if (timer_elapsed())
+        {
+            uart_print_fsm_state("MISSR");
+            uart_print_right_loss();
+            // Simulate a miss if no button press occurred within the time limit
+            current_state = MISSR;
+        }
+        break;
+
+    case MISSL:
+        // Left player missed, flash the rightmost LED and reset to INIT
+        led_display_flash_left_loss();
+        current_state = INIT;
+        uart_print_fsm_state("INIT");
+        timer_reset(); // Reset the timer
+        break;
+
+    case MISSR:
+        // Right player missed, flash the leftmost LED and reset to INIT
+        led_display_flash_right_loss();
+        current_state = INIT;
+        uart_print_fsm_state("INIT");
+        timer_reset(); // Reset the timer
+        break;
     }
 }
-

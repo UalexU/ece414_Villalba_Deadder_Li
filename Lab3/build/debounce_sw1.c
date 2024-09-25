@@ -1,6 +1,6 @@
 /* 
  * File:   debounce_sw1.c
- * Author: nestorj
+ * Author: Alex, Gabby and Wenjia modified : 9/25/2024
  *
  * Debounce a switch read by the sw_in module
  */

@@ -7,9 +7,15 @@ project(Lab3)
 pico_sdk_init()
 
 add_executable(Lab3
-        main.c
-    	led_out.c
-    	sw_in.c
+    main.c
+    led_out.c
+    sw_in.c
+    timer.c
+    fsm.c
+    debounce_sw1.c
+    debounce_sw2.c
+    uart.c
+    led_display.c
         )
 
 # pull in common dependencies
