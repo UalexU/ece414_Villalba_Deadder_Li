@@ -22,5 +22,5 @@ void timer_reset(void);
 // Check if the timer's delay period has elapsed
 bool timer_elapsed(void);
 
-
+uint32_t get_current_delay();
 #endif

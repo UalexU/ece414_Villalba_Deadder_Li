@@ -4,15 +4,13 @@
  *
  * Debounce a switch read by the sw_in module
  */
-
-#ifndef DEBOUNCER_H
-#define	DEBOUNCER_H
+#ifndef DEBOUNCER2_H
+#define	DEBOUNCER2_H
 
 #include "pico/stdlib.h"
 
 // use to schedule in main function:
 #define DEBOUNCE_PD_MS 25
-
 void debounce_sw2_init();
 
 void debounce_sw2_tick();
@@ -21,5 +19,5 @@ void debounce_sw2_tick();
 // been pressed.  Return FALSE until the button is released and pressed again
 bool debounce_sw2_pressed();
 
-#endif	/* DEBOUNCER_H */
+#endif	/* DEBOUNCER2_H */
 

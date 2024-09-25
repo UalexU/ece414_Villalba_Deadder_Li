@@ -14,6 +14,6 @@ typedef enum {
 void fsm_init(void);
 
 // Function to run the FSM logic
-void fsm_run(void);
+void fsm_run(int btn1,int btn2);
 
 #endif

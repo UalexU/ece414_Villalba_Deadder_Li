@@ -1,13 +1,11 @@
 #ifndef UART_MODULE_H
 #define UART_MODULE_H
 
-#include <stdint.h>
-
 // Initialize the UART communication
-void uart_init(void);
+void my_uart_init(void);
 
 // Print the current FSM state
-void uart_print_fsm_state(const char* state);
+void uart_print_fsm_state(const char *state);
 
 // Print message indicating the left player should serve
 void uart_print_left_serve(void);
@@ -20,6 +18,5 @@ void uart_print_left_loss(void);
 
 // Print message indicating the right player lost
 void uart_print_right_loss(void);
-
 
 #endif
