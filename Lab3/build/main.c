@@ -34,7 +34,9 @@ int main(){
 
     while (true) {
         // Run the FSM (Finite State Machine)
-        fsm_run();
+      debounce_sw1_tick();
+      debounce_sw2_tick();
+      fsm_run();
     }
 
     return 0;
