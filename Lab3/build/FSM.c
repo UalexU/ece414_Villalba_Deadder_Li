@@ -47,6 +47,7 @@ void fsm_run(int btn1, int btn2)
         current_state = MISSR;
         break;
     }
+
     switch (current_state)
     {
     case INIT:
@@ -71,7 +72,7 @@ void fsm_run(int btn1, int btn2)
         }
         else if (initial_server == 1)
         {   
-            uart_print_left_serve();
+            uart_print_right_serve();
             led_display_right_serve();
             if (btn2)
             {
@@ -79,7 +80,7 @@ void fsm_run(int btn1, int btn2)
                 led_display_shift_left();         // Start moving the ball to the left
                 timer_decrease();                 // Decrease the timer
                 initial_server = !initial_server; // Change the server
-                                                  // Right player pressed, move to WAITPUSHL state
+                                                // Right player pressed, move to WAITPUSHL state
                 current_state = WAITPUSHL;
             }
             else
@@ -134,7 +135,7 @@ void fsm_run(int btn1, int btn2)
         timer_reset(); // Reset the timer
         break;
     case MISSR:
-        led_display_flash_left_loss();
+        led_display_flash_right_loss();
         current_state = INIT;
         uart_print_fsm_state("INIT");
         timer_reset(); // Reset the timer
