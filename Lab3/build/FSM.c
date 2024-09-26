@@ -51,7 +51,7 @@ void fsm_run(int btn1, int btn2)
     switch (current_state)
     {
     case INIT:
-        if (initial_server == 0)
+        if (initial_server == 1)
         {
             led_display_left_serve(); // Turn on left led
             uart_print_left_serve();
@@ -70,7 +70,7 @@ void fsm_run(int btn1, int btn2)
                 current_state = INIT;
             }
         }
-        else if (initial_server == 1)
+        else if (initial_server == 0)
         {   
             uart_print_right_serve();
             led_display_right_serve();

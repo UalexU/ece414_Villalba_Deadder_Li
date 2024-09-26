@@ -57,4 +57,6 @@ CMakeFiles\Lab3.dir\fsm.c.obj: \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\debounce_sw2.h \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\timer.h \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\uart.h \
- C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\sw_in.h
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\sw_in.h \
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\led_out.h \
+ C:\PROGRA~1\RASPBE~1\PICOSD~1.1\pico-sdk\src\common\PICO_S~1\include/pico\stdlib.h
