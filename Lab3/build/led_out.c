@@ -5,8 +5,8 @@
 // Create a bitmask for GPIO pins 9 to 2 (00000011 11111100 in binary)
 // This indicates that GPIO pins 9 to 2 are the ones we want to control
 // const uint32_t MASK_9_2 = 0x000003fc;
-const uint32_t MASK_9_2 = (1 << 10) - 1;
-
+//const uint32_t MASK_9_2 = (1 << 10) - 1;
+const uint32_t MASK_9_2 = 0x3FC; // Binary: 0000 0011 1111 1100
 // Initialize the LED output pins
 void led_out_init()
 {

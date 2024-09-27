@@ -17,38 +17,35 @@
 
 
 int main(){
-  const uint32_t MASK_9_2 = 0x000003fc;
-    uint32_t outval = 0x1;
-    bool dir_left = true;
-  
+    //initialize all the modules 
     led_out_init();
-
-    uint32_t current_time = timer_read();
-    
-    // Initialize the FSM, timer, and LED display
-    my_uart_init();
-    fsm_init();
-
-    uint32_t t1, t2 ,t3;
     sw_in_init();
     debounce_sw1_init();
     debounce_sw2_init();
+    my_uart_init();
+    timer_init();
+    fsm_init();
+    //const uint32_t MASK_9_2 = 0x000003fc;
+   // uint32_t outval = 0x1;
+   // bool dir_left = true;
 
-    t1 = timer_read();
-   
-   
+    uint32_t last_debounce_time = 0;
+    uint32_t last_fsm_time = 0;
+    // Initialize the FSM, timer, and LED display
+
     while (1) {
-        t3 = timer_read();
-        if (timer_elapsed_ms(t1,t3) >= DEBOUNCE_PD_MS) {
+        uint32_t current_time = timer_read();
+        //t3 = timer_read();
+        if (timer_elapsed_ms(last_debounce_time,current_time) >= DEBOUNCE_PD_MS) {
             debounce_sw1_tick();
             debounce_sw2_tick();
+            last_debounce_time = current_time;
 
-            t1 = t3;
         }
 
-        if (timer_elapsed_ms(t2,t3) >= 500) {
-            fsm_run(debounce_sw1_pressed(),debounce_sw2_pressed());
-            t2 = t3;
+        if (timer_elapsed_ms(last_fsm_time,current_time) >= get_current_delay()) {
+            fsm_run();
+            last_fsm_time = current_time;
         }
     }
     return 0;

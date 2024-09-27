@@ -5,9 +5,9 @@
 #include "hardware/timer.h"
 #include <stdlib.h>
 #include "timer.h"
-#define RIGHT_LED 0x01  // rightmost LED (GPIO 2)
-#define LEFT_LED 0x80 // leftmost LED (GPIO 9)
 
+#define RIGHT_LED 0x04  // GPIO 2 (0000 0100)
+#define LEFT_LED 0x200 // GPIO 9 (0010 0000 0000)
 int led_display_init()
 {
     static int last_server = 1; // Track the last server (1 for right, 0 for left)
@@ -18,17 +18,14 @@ int led_display_init()
 
 }
 
-// Continuously shift the ball from leftmost to right most
+// Continuously shift the ball from rightmost to leftmost
 void led_display_shift_left(void)
 {
-    uint8_t outval = RIGHT_LED; // Start with the right LED
-
-
-    // Shift the ball all the way to the leftmost LED
+    uint16_t outval = RIGHT_LED;
     while (outval <= LEFT_LED)
     {
         led_out_write(outval);
-        sleep_ms(get_current_delay()); // Change this with the CURRENT DELAY VALUE 
+        sleep_ms(get_current_delay());
         outval <<= 1;
     }
 }
@@ -44,12 +41,10 @@ void led_display_right_serve(void)
     led_out_write(RIGHT_LED); // Light the rightmost LED
 }
 
-// shift the ball from right to left (starting at the rightmost LED)
+// shift the ball from left to right (starting at the leftmost LED)
 void led_display_shift_right(void)
 {
-    uint8_t outval = LEFT_LED; // Start with the rightmost LED
-
-    // Shift the ball all the way to the leftmost LED
+    uint16_t outval = LEFT_LED;
     while (outval >= RIGHT_LED)
     {
         led_out_write(outval);

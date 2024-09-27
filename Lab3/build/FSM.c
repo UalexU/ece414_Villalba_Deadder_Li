@@ -29,24 +29,26 @@ void fsm_init(void)
 void fsm_run(int btn1, int btn2)
 {
     
-    switch (current_state)
-    {
-    case INIT:
-        current_state = INIT;
-        break;
-    case WAITPUSHL:
-        current_state = WAITPUSHL;
-        break;
-    case WAITPUSHR:
-        current_state = WAITPUSHR;
-        break;
-    case MISSL:
-        current_state = MISSL;
-        break;
-    case MISSR:
-        current_state = MISSR;
-        break;
-    }
+    // switch (current_state)
+    // {
+    // case INIT:
+    //     current_state = INIT;
+    //     break;
+    // case WAITPUSHL:
+    //     current_state = WAITPUSHL;
+    //     break;
+    // case WAITPUSHR:
+    //     current_state = WAITPUSHR;
+    //     break;
+    // case MISSL:
+    //     current_state = MISSL;
+    //     break;
+    // case MISSR:
+    //     current_state = MISSR;
+    //     break;
+    // }
+    bool btn1 = debounce_sw1_pressed();   // Debounced check for left button
+    bool btn2 = debounce_sw2_pressed();  // Debounced check for right button
 
     switch (current_state)
     {
@@ -131,14 +133,16 @@ void fsm_run(int btn1, int btn2)
     case MISSL:
         led_display_flash_left_loss();
         current_state = INIT;
-        uart_print_fsm_state("INIT");
         timer_reset(); // Reset the timer
+        uart_print_fsm_state("INIT");
+       
         break;
     case MISSR:
         led_display_flash_right_loss();
         current_state = INIT;
-        uart_print_fsm_state("INIT");
         timer_reset(); // Reset the timer
+        uart_print_fsm_state("INIT");
+        
         break;
     }
 }

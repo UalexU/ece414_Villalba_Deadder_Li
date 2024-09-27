@@ -19,7 +19,8 @@ uint32_t timer_read()
 }
 
 uint32_t get_current_delay(){
-    return current_delay; 
+    //return current_delay; 
+    return 100; //fixed delay of 100
 }
 
 // return the elapsed time in us between two 32-bit timestamps
