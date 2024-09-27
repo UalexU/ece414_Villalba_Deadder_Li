@@ -19,4 +19,5 @@ void uart_print_left_loss(void);
 // Print message indicating the right player lost
 void uart_print_right_loss(void);
 
+void uart_debug(void);
 #endif

@@ -7,9 +7,10 @@
 #include "uart.h"
 #include "sw_in.h"
 #include "hardware/timer.h"
+
 // Declare the FSM state variable
-static FSM_State current_state;
-int initial_server;
+enum current_state {INIT,WAITPUSHL,WAITPUSHR,MISSL,MISSR} current_state;
+//int initial_server;
 // Initialize the FSM
 
 void fsm_init(void)
@@ -26,7 +27,7 @@ void fsm_init(void)
 }
 
 // Run the FSM
-void fsm_run(int btn1, int btn2)
+void fsm_run()
 {
     
     // switch (current_state)

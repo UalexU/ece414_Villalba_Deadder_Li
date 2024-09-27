@@ -54,3 +54,8 @@ void uart_print_right_loss(void)
 {
     uart_puts(UART_ID, "Right Player Lost the Point\n");
 }
+
+void uart_debug(void)
+{
+    uart_puts(UART_ID, "I'm here");
+}

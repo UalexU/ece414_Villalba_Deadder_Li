@@ -5,9 +5,12 @@
 #include "hardware/timer.h"
 #include <stdlib.h>
 #include "timer.h"
+#include "uart.h"
 
 #define RIGHT_LED 0x04  // GPIO 2 (0000 0100)
 #define LEFT_LED 0x200 // GPIO 9 (0010 0000 0000)
+const uint32_t MASK_9_2 = 0x000003fc;
+
 int led_display_init()
 {
     static int last_server = 1; // Track the last server (1 for right, 0 for left)
@@ -24,9 +27,11 @@ void led_display_shift_left(void)
     uint16_t outval = RIGHT_LED;
     while (outval <= LEFT_LED)
     {
+        uart_debug();
         led_out_write(outval);
         sleep_ms(get_current_delay());
         outval <<= 1;
+        uart_puts(UART_ID, "Right Player Lost the Point\n");
     }
 }
 void led_display_left_serve(void)
