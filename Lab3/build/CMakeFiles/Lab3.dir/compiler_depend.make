@@ -1627,6 +1627,134 @@ CMakeFiles\Lab3.dir\C_\Program_Files\Raspberry_Pi\Pico_SDK_v1.5.1\pico-sdk\src\r
 CMakeFiles\Lab3.dir\C_\Program_Files\Raspberry_Pi\Pico_SDK_v1.5.1\pico-sdk\src\rp2_common\pico_stdlib\stdlib.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\clocks.h"
 
 
+CMakeFiles\Lab3.dir\FSM.c.obj: FSM.c
+CMakeFiles\Lab3.dir\FSM.c.obj: fsm.h
+CMakeFiles\Lab3.dir\FSM.c.obj: LED_display.h
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: debounce_sw1.h
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\assert.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\assert.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\newlib.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_newlib_version.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\config.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\ieeefp.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\features.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdint.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_default_types.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_intsup.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_stdint.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stddef.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: generated\pico_base\pico\version.h
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\config.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: generated\pico_base\pico\config_autogen.h
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\boards\include\boards\pico.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\cmsis\include\cmsis\rename_exceptions.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_platform\include\pico\platform.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\platform_defs.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\addressmap.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\sio.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\cdefs.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\error.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio\include\pico\stdio.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_time\include\pico\time.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_timer\include\hardware\timer.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\timer.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_base\include\hardware\address_mapped.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\timer.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_gpio\include\hardware\gpio.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\sio.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\interp.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\padsbank0.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\pads_bank0.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\iobank0.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\io_bank0.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_irq\include\hardware\irq.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\intctrl.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\m0plus.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_uart\include\hardware\uart.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\uart.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\uart.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\dreq.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio_uart\include\pico\stdio_uart.h"
+CMakeFiles\Lab3.dir\FSM.c.obj: debounce_sw2.h
+CMakeFiles\Lab3.dir\FSM.c.obj: timer.h
+CMakeFiles\Lab3.dir\FSM.c.obj: uart.h
+CMakeFiles\Lab3.dir\FSM.c.obj: sw_in.h
+
+
+CMakeFiles\Lab3.dir\LED_display.c.obj: LED_display.c
+CMakeFiles\Lab3.dir\LED_display.c.obj: LED_display.h
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: led_out.h
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\assert.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\assert.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\newlib.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_newlib_version.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\config.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\ieeefp.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\features.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdint.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_default_types.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_intsup.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_stdint.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stddef.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: generated\pico_base\pico\version.h
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\config.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: generated\pico_base\pico\config_autogen.h
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\boards\include\boards\pico.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\cmsis\include\cmsis\rename_exceptions.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_platform\include\pico\platform.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\platform_defs.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\addressmap.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\sio.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\cdefs.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\error.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio\include\pico\stdio.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_time\include\pico\time.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_timer\include\hardware\timer.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\timer.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_base\include\hardware\address_mapped.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\timer.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_gpio\include\hardware\gpio.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\sio.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\interp.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\padsbank0.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\pads_bank0.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\iobank0.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\io_bank0.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_irq\include\hardware\irq.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\intctrl.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\m0plus.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_uart\include\hardware\uart.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\uart.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\uart.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\dreq.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio_uart\include\pico\stdio_uart.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdlib.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\reent.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_types.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_types.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\lock.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\stdlib.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\alloca.h"
+CMakeFiles\Lab3.dir\LED_display.c.obj: timer.h
+CMakeFiles\Lab3.dir\LED_display.c.obj: uart.h
+
+
 CMakeFiles\Lab3.dir\debounce_sw1.c.obj: debounce_sw1.c
 CMakeFiles\Lab3.dir\debounce_sw1.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h"
 CMakeFiles\Lab3.dir\debounce_sw1.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
@@ -1775,133 +1903,6 @@ CMakeFiles\Lab3.dir\debounce_sw2.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK 
 CMakeFiles\Lab3.dir\debounce_sw2.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio_uart\include\pico\stdio_uart.h"
 CMakeFiles\Lab3.dir\debounce_sw2.c.obj: debounce_sw2.h
 CMakeFiles\Lab3.dir\debounce_sw2.c.obj: sw_in.h
-
-
-CMakeFiles\Lab3.dir\fsm.c.obj: fsm.c
-CMakeFiles\Lab3.dir\fsm.c.obj: fsm.h
-CMakeFiles\Lab3.dir\fsm.c.obj: led_display.h
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: debounce_sw1.h
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\assert.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\assert.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\newlib.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_newlib_version.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\config.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\ieeefp.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\features.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdint.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_default_types.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_intsup.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_stdint.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stddef.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: generated\pico_base\pico\version.h
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\config.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: generated\pico_base\pico\config_autogen.h
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\boards\include\boards\pico.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\cmsis\include\cmsis\rename_exceptions.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_platform\include\pico\platform.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\platform_defs.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\addressmap.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\sio.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\cdefs.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\error.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio\include\pico\stdio.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_time\include\pico\time.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_timer\include\hardware\timer.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\timer.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_base\include\hardware\address_mapped.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\timer.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_gpio\include\hardware\gpio.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\sio.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\interp.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\padsbank0.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\pads_bank0.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\iobank0.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\io_bank0.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_irq\include\hardware\irq.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\intctrl.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\m0plus.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_uart\include\hardware\uart.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\uart.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\uart.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\dreq.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio_uart\include\pico\stdio_uart.h"
-CMakeFiles\Lab3.dir\fsm.c.obj: debounce_sw2.h
-CMakeFiles\Lab3.dir\fsm.c.obj: timer.h
-CMakeFiles\Lab3.dir\fsm.c.obj: uart.h
-CMakeFiles\Lab3.dir\fsm.c.obj: sw_in.h
-
-
-CMakeFiles\Lab3.dir\led_display.c.obj: led_display.c
-CMakeFiles\Lab3.dir\led_display.c.obj: led_display.h
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: led_out.h
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\assert.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\assert.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\newlib.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_newlib_version.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\config.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\ieeefp.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\features.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdint.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_default_types.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_intsup.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_stdint.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stddef.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: generated\pico_base\pico\version.h
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\config.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: generated\pico_base\pico\config_autogen.h
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\boards\include\boards\pico.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\cmsis\include\cmsis\rename_exceptions.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_platform\include\pico\platform.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\platform_defs.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\addressmap.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\sio.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\cdefs.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\error.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio\include\pico\stdio.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_time\include\pico\time.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_timer\include\hardware\timer.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\timer.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_base\include\hardware\address_mapped.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\timer.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_gpio\include\hardware\gpio.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\sio.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\interp.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\padsbank0.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\pads_bank0.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\iobank0.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\io_bank0.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_irq\include\hardware\irq.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\intctrl.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\m0plus.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_uart\include\hardware\uart.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\uart.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\uart.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\dreq.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio_uart\include\pico\stdio_uart.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdlib.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\reent.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_types.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_types.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\lock.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\stdlib.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\alloca.h"
-CMakeFiles\Lab3.dir\led_display.c.obj: timer.h
 
 
 CMakeFiles\Lab3.dir\led_out.c.obj: led_out.c
@@ -2551,6 +2552,8 @@ uart.h:
 
 "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\times.h":
 
+LED_display.c:
+
 "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\unistd.h":
 
 "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\mpu.h":
@@ -2579,23 +2582,21 @@ uart.h:
 
 "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h":
 
-debounce_sw1.h:
-
-sw_in.h:
-
-debounce_sw2.c:
-
-fsm.c:
+FSM.c:
 
 fsm.h:
 
-led_display.h:
+LED_display.h:
+
+debounce_sw1.h:
 
 timer.h:
 
-led_display.c:
+sw_in.h:
 
 led_out.h:
+
+debounce_sw2.c:
 
 led_out.c:
 

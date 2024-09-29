@@ -3,7 +3,7 @@
  */
 
 #include "pico/stdlib.h"
-
+#include <stdbool.h>
 #define LED25 25
 
 void led25_out_init() {

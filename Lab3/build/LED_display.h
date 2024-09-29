@@ -3,8 +3,16 @@
 
 #include <stdbool.h>
 
+// Variables 
+//#define RIGHT_LED 0x200 // GPIO 9 (0010 0000 0000)
+//#define LEFT_LED 0x04  // GPIO 2 (0000 0100)
+#define RIGHT_LED 0x80 // GPIO 9 (0010 0000 0000)
+#define LEFT_LED 0x01  // GPIO 2 (0000 0100)
+
+
+
 // nitialize the LED display
-int led_display_init(void);
+int random_server(void);
 
 // shift the ball from left to right
 void led_display_shift_left(void);

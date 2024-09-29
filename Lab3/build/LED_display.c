@@ -7,11 +7,8 @@
 #include "timer.h"
 #include "uart.h"
 
-#define RIGHT_LED 0x04  // GPIO 2 (0000 0100)
-#define LEFT_LED 0x200 // GPIO 9 (0010 0000 0000)
-const uint32_t MASK_9_2 = 0x000003fc;
 
-int led_display_init()
+int random_server()
 {
     static int last_server = 1; // Track the last server (1 for right, 0 for left)
     // Use the current timer value to make a pseudo-random decision

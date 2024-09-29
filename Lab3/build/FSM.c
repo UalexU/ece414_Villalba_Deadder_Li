@@ -10,17 +10,16 @@
 
 // Declare the FSM state variable
 enum current_state {INIT,WAITPUSHL,WAITPUSHR,MISSL,MISSR} current_state;
-//int initial_server;
+
 // Initialize the FSM
 
 void fsm_init(void)
 {
-    // debounce_sw1_init();
-    // debounce_sw2_init();
-    // Use the current timer value to make a pseudo-random decision
-    initial_server = led_display_init(); // XOR with last_server to alternate
 
-    timer_init(); // initialize the timer
+    // Use the current timer value to make a pseudo-random decision
+    initial_server = random_server(); // XOR with last_server to alternate
+
+    // timer_init(); // initialize the timer
     uart_print_fsm_state("INIT");
     current_state = INIT; // Start in the INIT state
     
@@ -29,41 +28,22 @@ void fsm_init(void)
 // Run the FSM
 void fsm_run()
 {
-    
-    // switch (current_state)
-    // {
-    // case INIT:
-    //     current_state = INIT;
-    //     break;
-    // case WAITPUSHL:
-    //     current_state = WAITPUSHL;
-    //     break;
-    // case WAITPUSHR:
-    //     current_state = WAITPUSHR;
-    //     break;
-    // case MISSL:
-    //     current_state = MISSL;
-    //     break;
-    // case MISSR:
-    //     current_state = MISSR;
-    //     break;
-    // }
-    bool btn1 = debounce_sw1_pressed();   // Debounced check for left button
-    bool btn2 = debounce_sw2_pressed();  // Debounced check for right button
+
+    bool btn1 = debounce_sw2_pressed();   // Debounced check for left button
+    bool btn2 = debounce_sw1_pressed();  // Debounced check for right button
 
     switch (current_state)
     {
     case INIT:
-        if (initial_server == 1)
+        if (initial_server == 1) // Left server
         {
             led_display_left_serve(); // Turn on left led
             uart_print_left_serve();
-            if (btn1)
+            if (btn1) // Player serves
             {
                 uart_print_fsm_state("WAITPUSHR");
                 led_display_shift_right();        // Start moving the ball to the right
-                timer_decrease();                 // Decrease the timer
-                                                  // Left player pressed, move to WAITPUSHR state
+                timer_decrease();                 // Decrease the timer                            
                 initial_server = !initial_server; // Change the server
                 current_state = WAITPUSHR;
             }
@@ -115,13 +95,13 @@ void fsm_run()
         break;
 
     case WAITPUSHR:
-        if (btn2)
+        if (btn2) // if the player hits the ball 
         {
             uart_print_fsm_state("WAITPUSHL");
-            led_display_shift_left();
-            timer_decrease();
-            // Left player pressed, move the ball to the left
-            current_state = WAITPUSHL;
+            led_display_shift_left(); // Shift ball to the left 
+            timer_decrease(); 
+            
+            current_state = WAITPUSHL; // left player turn
         }
         else if (timer_elapsed())
         {

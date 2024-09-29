@@ -19,8 +19,8 @@ uint32_t timer_read()
 }
 
 uint32_t get_current_delay(){
-    //return current_delay; 
-    return 100; //fixed delay of 100
+    return current_delay; 
+    // return 100; //fixed delay of 100
 }
 
 // return the elapsed time in us between two 32-bit timestamps
@@ -65,6 +65,7 @@ void timer_reset(void)
 bool timer_elapsed(void)
 {
     uint32_t current_time = timer_read(); // Get the current time
+    // If the time passed since last time is bigger than the delay return true
     if (timer_elapsed_ms(last_time, current_time) >= current_delay)
     {
         last_time = current_time; // Update the last time for the next check

@@ -22,7 +22,7 @@ void led_out_init()
 void led_out_write(uint8_t a)
 {
 
-    uint32_t shifted_value = (a << 2) & MASK_9_2;
+    uint32_t shifted_value = (a << 2) & MASK_9_2; // AND operation
     // gpio_put_masked(MASK_9_2, a << 2);
     gpio_put_masked(MASK_9_2, shifted_value);
 }
