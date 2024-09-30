@@ -9,9 +9,8 @@
 // Set up UART
 #include "uart.h"
 
-
-int main(){
-    //initialize all the modules 
+int main() {
+    // Initialize all the modules
     led_out_init();
     sw_in_init();
     debounce_sw1_init();
@@ -20,25 +19,25 @@ int main(){
     timer_init();
     fsm_init();
 
-    uint32_t last_debounce_time = 0;
-    uint32_t last_fsm_time = 0;
-    // Initialize the FSM, timer, and LED display
+    uint32_t t1 = timer_read();
+    uint32_t t1_debouncer = timer_read();
+    uint32_t t2;  // Only declare once
 
     while (1) {
-        uint32_t current_time = timer_read();
-        // updates the tick 
-        if (timer_elapsed_ms(last_debounce_time,current_time) >= DEBOUNCE_PD_MS) {
+        t2 = timer_read();  // Use t2 without redeclaring
+
+        // Updates the debounce tick
+        if (timer_elapsed_ms(t1_debouncer, t2) >= DEBOUNCE_PD_MS) {
             debounce_sw1_tick();
             debounce_sw2_tick();
-            last_debounce_time = current_time;
-
+            t1_debouncer = t2;  // Update t1_debouncer with t2
         }
 
-        if (timer_elapsed_ms(last_fsm_time,current_time) >= get_current_delay()) {
+        // Updates the FSM tick
+        if (timer_elapsed_ms(t1, t2) >= INITIAL_DELAY) {
             fsm_run();
-            last_fsm_time = current_time;
+            t1 = t2;  // Update t1 for the next FSM tick
         }
-        
     }
     return 0;
 }

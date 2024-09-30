@@ -4,6 +4,11 @@
 #include "pico/stdlib.h"
 #include "hardware/timer.h"
 
+
+#define INITIAL_DELAY 300 // Initial delay in milliseconds
+#define MIN_DELAY 100     // Minimum delay in milliseconds
+#define DELAY_STEP 10     // The amount by which the delay decreases after each run
+
 uint32_t timer_read();
 
 uint32_t timer_elapsed_us(uint32_t t1, uint32_t t2);

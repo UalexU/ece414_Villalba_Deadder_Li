@@ -1124,30 +1124,6 @@ C_\Program_Files\Raspberry_Pi\Pico_SDK_v1.5.1\pico-sdk\src\rp2_common\pico_stdli
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\C_\Program_Files\Raspberry_Pi\Pico_SDK_v1.5.1\pico-sdk\src\rp2_common\pico_stdlib\stdlib.c.s
 .PHONY : C_\Program_Files\Raspberry_Pi\Pico_SDK_v1.5.1\pico-sdk\src\rp2_common\pico_stdlib\stdlib.c.s
 
-FSM.obj: FSM.c.obj
-.PHONY : FSM.obj
-
-# target to build an object file
-FSM.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\FSM.c.obj
-.PHONY : FSM.c.obj
-
-FSM.i: FSM.c.i
-.PHONY : FSM.i
-
-# target to preprocess a source file
-FSM.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\FSM.c.i
-.PHONY : FSM.c.i
-
-FSM.s: FSM.c.s
-.PHONY : FSM.s
-
-# target to generate assembly for a file
-FSM.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\FSM.c.s
-.PHONY : FSM.c.s
-
 LED_display.obj: LED_display.c.obj
 .PHONY : LED_display.obj
 
@@ -1219,6 +1195,30 @@ debounce_sw2.s: debounce_sw2.c.s
 debounce_sw2.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\debounce_sw2.c.s
 .PHONY : debounce_sw2.c.s
+
+fsm.obj: fsm.c.obj
+.PHONY : fsm.obj
+
+# target to build an object file
+fsm.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\fsm.c.obj
+.PHONY : fsm.c.obj
+
+fsm.i: fsm.c.i
+.PHONY : fsm.i
+
+# target to preprocess a source file
+fsm.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\fsm.c.i
+.PHONY : fsm.c.i
+
+fsm.s: fsm.c.s
+.PHONY : fsm.s
+
+# target to generate assembly for a file
+fsm.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab3.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Lab3.dir\fsm.c.s
+.PHONY : fsm.c.s
 
 led_out.obj: led_out.c.obj
 .PHONY : led_out.obj
@@ -1471,9 +1471,6 @@ help:
 	@echo ... C_/Program_Files/Raspberry_Pi/Pico_SDK_v1.5.1/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj
 	@echo ... C_/Program_Files/Raspberry_Pi/Pico_SDK_v1.5.1/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i
 	@echo ... C_/Program_Files/Raspberry_Pi/Pico_SDK_v1.5.1/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s
-	@echo ... FSM.obj
-	@echo ... FSM.i
-	@echo ... FSM.s
 	@echo ... LED_display.obj
 	@echo ... LED_display.i
 	@echo ... LED_display.s
@@ -1483,6 +1480,9 @@ help:
 	@echo ... debounce_sw2.obj
 	@echo ... debounce_sw2.i
 	@echo ... debounce_sw2.s
+	@echo ... fsm.obj
+	@echo ... fsm.i
+	@echo ... fsm.s
 	@echo ... led_out.obj
 	@echo ... led_out.i
 	@echo ... led_out.s
