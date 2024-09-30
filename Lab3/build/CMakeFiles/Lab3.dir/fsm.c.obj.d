@@ -1,8 +1,8 @@
-CMakeFiles\Lab3.dir\FSM.c.obj: \
- C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\FSM.c \
+CMakeFiles\Lab3.dir\fsm.c.obj: \
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\fsm.c \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\fsm.h \
- C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\led_display.h \
  c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h \
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\led_display.h \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\debounce_sw1.h \
  C:\PROGRA~1\RASPBE~1\PICOSD~1.1\pico-sdk\src\common\PICO_S~1\include/pico/stdlib.h \
  C:\PROGRA~1\RASPBE~1\PICOSD~1.1\pico-sdk\src\common\PICO_B~1\include/pico.h \
@@ -57,4 +57,23 @@ CMakeFiles\Lab3.dir\FSM.c.obj: \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\debounce_sw2.h \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\timer.h \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\uart.h \
- C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\sw_in.h
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\sw_in.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\stdio.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\lib\gcc\arm-none-eabi\10.3.1\include\stdarg.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\reent.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\_ansi.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\_types.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\machine\_types.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\lock.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\types.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\machine\endian.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\machine\_endian.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\select.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\_sigset.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\_timeval.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\timespec.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\_timespec.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\_pthreadtypes.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\sched.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\machine\types.h \
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\stdio.h

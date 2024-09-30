@@ -1,15 +1,11 @@
 #ifndef FSM_H
 #define FSM_H
+#include "stdbool.h"
 
-// // Enum to represent the different FSM states
-// typedef enum {
-//     INIT,       // Initial state: assign serve and light the corresponding LED
-//     WAITPUSHL,  // Waiting for the left player to press (ball moving to the left)
-//     WAITPUSHR,  // Waiting for the right player to press (ball moving to the right)
-//     MISSL,      // Left player missed, rightmost LED flashes
-//     MISSR       // Right player missed, leftmost LED flashes
-// } FSM_State;
-
+//Variables 
+static int serve;
+static bool dir_right; // direction dictates which way it moves (true for right, false for left)
+static bool win; //left = 0, right = 1
 // Function to initialize the FSM
 void fsm_init(void);
 

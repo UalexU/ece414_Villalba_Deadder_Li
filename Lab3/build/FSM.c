@@ -7,15 +7,30 @@
 #include "uart.h"
 #include "sw_in.h"
 #include "hardware/timer.h"
+#include <stdio.h>
+static int current_delay = INITIAL_DELAY;
+
 
 // Declare the FSM state variable
-enum current_state {INIT,WAITPUSHL,WAITPUSHR,MISSL,MISSR} current_state;
-
+static enum current_state {
+    INIT,
+    SERVE_RIGTH,
+    SERVE_LEFT,
+    LED1,
+    LED2,
+    LED3, 
+    LED4,
+    LED5,
+    LED6,
+    LED7,
+    LED8, 
+    MISS
+} current_state; //all of the different states
 // Initialize the FSM
 
 void fsm_init(void)
 {
-
+    
     // Use the current timer value to make a pseudo-random decision
     initial_server = random_server(); // XOR with last_server to alternate
 
@@ -29,101 +44,228 @@ void fsm_init(void)
 void fsm_run()
 {
 
-    bool btn1 = debounce_sw2_pressed();   // Debounced check for left button
-    bool btn2 = debounce_sw1_pressed();  // Debounced check for right button
+    bool btn1 = debounce_sw1_pressed();   // Debounced check for left button
+    bool btn2 = debounce_sw2_pressed();  // Debounced check for right button
+
+switch (current_state) //FSM cases to show which light is on
+    {
+    case INIT:
+        break;
+
+    case SERVE_LEFT:
+        led_out_write(0b10000000);
+        break;
+
+    case SERVE_RIGTH:
+        led_out_write(0b00000001);
+        break;
+
+    case LED1:
+        led_out_write(0b10000000);
+        break;
+
+    case LED2:
+        led_out_write(0b01000000);
+        break;
+
+    case LED3:
+        led_out_write(0b00100000);
+        break;
+
+    case LED4:
+        led_out_write(0b00010000);
+        break;
+
+    case LED5:
+        led_out_write(0b00001000);
+        break;
+
+    case LED6:
+        led_out_write(0b00000100);
+        break;
+
+    case LED7:
+        led_out_write(0b00000010);
+        break;
+
+    case LED8:
+        led_out_write(0b00000001);
+        break;
+    }
 
     switch (current_state)
     {
-    case INIT:
-        if (initial_server == 1) // Left server
-        {
-            led_display_left_serve(); // Turn on left led
-            uart_print_left_serve();
-            if (btn1) // Player serves
-            {
-                uart_print_fsm_state("WAITPUSHR");
-                led_display_shift_right();        // Start moving the ball to the right
-                timer_decrease();                 // Decrease the timer                            
-                initial_server = !initial_server; // Change the server
-                current_state = WAITPUSHR;
-            }
-            else
-            {
-                led_display_left_serve(); // Turn on left led
-                current_state = INIT;
-            }
-        }
-        else if (initial_server == 0)
-        {   
-            uart_print_right_serve();
-            led_display_right_serve();
-            if (btn2)
-            {
-                uart_print_fsm_state("WAITPUSHL");
-                led_display_shift_left();         // Start moving the ball to the left
-                timer_decrease();                 // Decrease the timer
-                initial_server = !initial_server; // Change the server
-                                                // Right player pressed, move to WAITPUSHL state
-                current_state = WAITPUSHL;
-            }
-            else
-            {
-                current_state = INIT;
-                led_display_right_serve();
-            }
-        }
+ case INIT:
 
+        if(initial_server==1)
+        {
+            current_state = SERVE_RIGTH;
+        }
+        else
+        {
+            current_state = SERVE_LEFT;
+        }
         break;
 
-    case WAITPUSHL:
-        // Ball is moving left, wait for right player press or a miss
+    case SERVE_RIGTH: //when the ball is started on the right
+        if (btn2)
+        {
+            dir_right = false; //starting direction (left)
+            current_state = LED7; //skips L8 for better visual flow
+        }
+        else
+        {
+            current_state = SERVE_RIGTH;
+        }
+        break;
+
+    case SERVE_LEFT: //when the ball is started on the left
         if (btn1)
         {
-            // Right player pressed, move the ball to the right
-            uart_print_fsm_state("WAITPUSHR");
-            led_display_shift_right();
-            timer_decrease();
-            current_state = WAITPUSHR;
+            dir_right = true; //light moves right
+            current_state = LED2; //skips L1 for better visual flow
         }
-        else if (timer_elapsed())
+        else
         {
-            // Simulate a miss if no button press occurred within the time limit
-            uart_print_fsm_state("MISSL");
-            uart_print_left_loss();
-            current_state = MISSL;
+            current_state = SERVE_LEFT; //loops until button pressed
         }
         break;
 
-    case WAITPUSHR:
-        if (btn2) // if the player hits the ball 
+    case LED1: 
+
+        if (!dir_right && btn1)
         {
-            uart_print_fsm_state("WAITPUSHL");
-            led_display_shift_left(); // Shift ball to the left 
-            timer_decrease(); 
-            
-            current_state = WAITPUSHL; // left player turn
+            if (current_delay > MIN_DELAY) //speeds up pong after every hit
+            {
+                current_delay -= DELAY_STEP;
+            }
+            dir_right = true; //switch direction
+            current_state = LED2; 
         }
-        else if (timer_elapsed())
+        else if (!btn1 && !dir_right) //win condition
         {
-            uart_print_fsm_state("MISSR");
-            uart_print_right_loss();
-            // Simulate a miss if no button press occurred within the time limit
-            current_state = MISSR;
+            current_state = MISS;
+            win = 1;
+        }
+        else //should not occur, mainly to see if pong is broken (i.e. if dir_right = true inside of L1)
+        {
+            current_state = LED1; 
         }
         break;
-    case MISSL:
-        led_display_flash_left_loss();
-        current_state = INIT;
-        timer_reset(); // Reset the timer
-        uart_print_fsm_state("INIT");
-       
+
+    case LED2: //light 2
+
+        if (dir_right)
+        {
+            current_state = LED3;
+        }
+        else if (!dir_right)
+        {
+            current_state = LED1;
+        }
         break;
-    case MISSR:
-        led_display_flash_right_loss();
-        current_state = INIT;
-        timer_reset(); // Reset the timer
-        uart_print_fsm_state("INIT");
+
+    case LED3: //light 3
+
+        if (dir_right)
+        {
+            current_state = LED4;
+        }
+        else if (!dir_right)
+        {
+            current_state = LED2;
+        }
+        break;
+
+    case LED4: // light 4
+
+        if (dir_right)
+        {
+            current_state = LED5;
+        }
+        else if (!dir_right)
+        {
+            current_state = LED3;
+        }
+        break;
+
+    case LED5: //light 5
         
+        if (dir_right)
+        {
+            current_state = LED6;
+        }
+        else if (!dir_right)
+        {
+            current_state = LED4;
+        }
         break;
+
+    case LED6: //light 6
+        
+        if (dir_right)
+        {
+            current_state = LED7;
+        }
+        else if (!dir_right)
+        {
+            current_state = LED5;
+        }
+        break;
+
+    case LED7: //light 7
+        
+        if (dir_right)
+        {
+            current_state = LED8;
+        }
+        else if (!dir_right)
+        {
+            current_state = LED6;
+        }
+        break;
+
+    case LED8:
+        
+        if (dir_right && btn2) //button is pressed, lights move the other way
+        {
+            if (current_delay > MIN_DELAY) //speeds up pong after  hit
+            {
+                current_delay -= DELAY_STEP;
+            }
+            dir_right = false;
+            current_state = LED7; 
+        }
+        else if (!btn1 && dir_right) //win state
+        {
+            win = 0;
+            current_state = MISS;
+        }
+        else //should not occur, mainly to see if pong is broken
+        {
+            current_state = LED8;
+        }
+        break;
+
+    case MISS: // flashes led that corresponds to the winning player, then returns to start
+        if(win) //right wins
+        {
+            printf("Right Wins!\n");
+            led_display_flash_right_loss();
+            initial_server = !initial_server;
+            current_state = INIT;
+
+        }
+        else if(!win) //left wins
+        {
+            printf("Left Wins!\n");
+            initial_server = !initial_server;
+            led_display_flash_left_loss();
+            current_state = INIT;
+        }
+
+
     }
-}
+    
+    }
+    

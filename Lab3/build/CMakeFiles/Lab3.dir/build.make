@@ -114,19 +114,19 @@ CMakeFiles\Lab3.dir\timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab3.dir/timer.c.s"
 	C:\PROGRA~1\RASPBE~1\PICOSD~1.1\GCC-AR~1\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\timer.c -o CMakeFiles\Lab3.dir\timer.c.s
 
-CMakeFiles\Lab3.dir\FSM.c.obj: CMakeFiles\Lab3.dir\flags.make
-CMakeFiles\Lab3.dir\FSM.c.obj: FSM.c
-CMakeFiles\Lab3.dir\FSM.c.obj: CMakeFiles\Lab3.dir\compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Lab3.dir/FSM.c.obj"
-	C:\PROGRA~1\RASPBE~1\PICOSD~1.1\GCC-AR~1\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles\Lab3.dir\FSM.c.obj -MF CMakeFiles\Lab3.dir\FSM.c.obj.d -o CMakeFiles\Lab3.dir\FSM.c.obj -c C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\FSM.c
+CMakeFiles\Lab3.dir\fsm.c.obj: CMakeFiles\Lab3.dir\flags.make
+CMakeFiles\Lab3.dir\fsm.c.obj: fsm.c
+CMakeFiles\Lab3.dir\fsm.c.obj: CMakeFiles\Lab3.dir\compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Lab3.dir/fsm.c.obj"
+	C:\PROGRA~1\RASPBE~1\PICOSD~1.1\GCC-AR~1\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles\Lab3.dir\fsm.c.obj -MF CMakeFiles\Lab3.dir\fsm.c.obj.d -o CMakeFiles\Lab3.dir\fsm.c.obj -c C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\fsm.c
 
-CMakeFiles\Lab3.dir\FSM.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab3.dir/FSM.c.i"
-	C:\PROGRA~1\RASPBE~1\PICOSD~1.1\GCC-AR~1\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\FSM.c > CMakeFiles\Lab3.dir\FSM.c.i
+CMakeFiles\Lab3.dir\fsm.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab3.dir/fsm.c.i"
+	C:\PROGRA~1\RASPBE~1\PICOSD~1.1\GCC-AR~1\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\fsm.c > CMakeFiles\Lab3.dir\fsm.c.i
 
-CMakeFiles\Lab3.dir\FSM.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab3.dir/FSM.c.s"
-	C:\PROGRA~1\RASPBE~1\PICOSD~1.1\GCC-AR~1\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\FSM.c -o CMakeFiles\Lab3.dir\FSM.c.s
+CMakeFiles\Lab3.dir\fsm.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab3.dir/fsm.c.s"
+	C:\PROGRA~1\RASPBE~1\PICOSD~1.1\GCC-AR~1\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab3\build\fsm.c -o CMakeFiles\Lab3.dir\fsm.c.s
 
 CMakeFiles\Lab3.dir\debounce_sw1.c.obj: CMakeFiles\Lab3.dir\flags.make
 CMakeFiles\Lab3.dir\debounce_sw1.c.obj: debounce_sw1.c
@@ -823,7 +823,7 @@ Lab3_OBJECTS = \
 "CMakeFiles\Lab3.dir\led_out.c.obj" \
 "CMakeFiles\Lab3.dir\sw_in.c.obj" \
 "CMakeFiles\Lab3.dir\timer.c.obj" \
-"CMakeFiles\Lab3.dir\FSM.c.obj" \
+"CMakeFiles\Lab3.dir\fsm.c.obj" \
 "CMakeFiles\Lab3.dir\debounce_sw1.c.obj" \
 "CMakeFiles\Lab3.dir\debounce_sw2.c.obj" \
 "CMakeFiles\Lab3.dir\uart.c.obj" \
@@ -882,7 +882,7 @@ Lab3.elf: CMakeFiles\Lab3.dir\main.c.obj
 Lab3.elf: CMakeFiles\Lab3.dir\led_out.c.obj
 Lab3.elf: CMakeFiles\Lab3.dir\sw_in.c.obj
 Lab3.elf: CMakeFiles\Lab3.dir\timer.c.obj
-Lab3.elf: CMakeFiles\Lab3.dir\FSM.c.obj
+Lab3.elf: CMakeFiles\Lab3.dir\fsm.c.obj
 Lab3.elf: CMakeFiles\Lab3.dir\debounce_sw1.c.obj
 Lab3.elf: CMakeFiles\Lab3.dir\debounce_sw2.c.obj
 Lab3.elf: CMakeFiles\Lab3.dir\uart.c.obj

@@ -6,7 +6,12 @@
     ],
     "settings": {
         "files.associations": {
-            "stdlib.h": "c"
+            "stdlib.h": "c",
+            "timer.h": "c",
+            "debounce_sw2.h": "c",
+            "fsm.h": "c",
+            "uart.h": "c",
+            "cstdint": "c"
         }
     }
 }
