@@ -111,7 +111,7 @@ switch (current_state) //FSM cases to show which light is on
         if (btn2)
         {
             dir_right = false; //starting direction (left)
-            current_state = LED7; //skips L8 for better visual flow
+            current_state = LED7; //skips LED8 for better visual flow
         }
         else
         {
@@ -142,12 +142,12 @@ switch (current_state) //FSM cases to show which light is on
             dir_right = true; //switch direction
             current_state = LED2; 
         }
-        else if (!btn1 && !dir_right) //win condition
+        else if (!btn1 && !dir_right) //miss condition
         {
             current_state = MISS;
             win = 1;
         }
-        else //should not occur, mainly to see if pong is broken (i.e. if dir_right = true inside of L1)
+        else // for testing purposes
         {
             current_state = LED1; 
         }
@@ -236,21 +236,21 @@ switch (current_state) //FSM cases to show which light is on
             dir_right = false;
             current_state = LED7; 
         }
-        else if (!btn1 && dir_right) //win state
+        else if (!btn1 && dir_right) 
         {
             win = 0;
             current_state = MISS;
         }
-        else //should not occur, mainly to see if pong is broken
+        else 
         {
             current_state = LED8;
         }
         break;
 
-    case MISS: // flashes led that corresponds to the winning player, then returns to start
+    case MISS: // player misses the ball, then returns to start
         if(win) //right wins
         {
-            printf("Right Wins!\n");
+            //printf("Right Wins\n");
             led_display_flash_right_loss();
             initial_server = !initial_server;
             current_state = INIT;
@@ -258,7 +258,7 @@ switch (current_state) //FSM cases to show which light is on
         }
         else if(!win) //left wins
         {
-            printf("Left Wins!\n");
+            //printf("Left Wins\n");
             initial_server = !initial_server;
             led_display_flash_left_loss();
             current_state = INIT;
