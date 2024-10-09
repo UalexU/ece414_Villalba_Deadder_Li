@@ -38,6 +38,7 @@ int main() {
         tft_setTextColor(ILI9340_WHITE); tft_setTextSize(2);
 
         //erase old text
+        
         tft_setTextColor(ILI9340_BLACK);
         tft_writeString(buffer);
         

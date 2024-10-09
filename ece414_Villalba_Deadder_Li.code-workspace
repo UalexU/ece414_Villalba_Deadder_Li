@@ -11,7 +11,22 @@
             "debounce_sw2.h": "c",
             "fsm.h": "c",
             "uart.h": "c",
-            "cstdint": "c"
+            "cstdint": "c",
+            "warn_implementation.h": "c",
+            "iosfwd": "c",
+            "wrnfsm.h": "c",
+            "alarm_intf.h": "c",
+            "alrmfsm.h": "c",
+            "inttypes.h": "c",
+            "stdbool.h": "c",
+            "fstream": "c",
+            "algorithm": "c",
+            "iterator": "c",
+            "xmemory": "c",
+            "xtree": "c",
+            "xutility": "c",
+            "tftmaster.h": "c",
+            "pio.h": "c"
         }
     }
 }
