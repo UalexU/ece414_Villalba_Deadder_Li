@@ -26,7 +26,8 @@
             "xtree": "c",
             "xutility": "c",
             "tftmaster.h": "c",
-            "pio.h": "c"
+            "pio.h": "c",
+            "ts_lcd.h": "c"
         }
     }
 }

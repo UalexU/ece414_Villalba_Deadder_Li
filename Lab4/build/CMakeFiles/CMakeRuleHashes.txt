@@ -1,5 +1,5 @@
 # Hashes of file build rules.
-ef675ed82a42bb52905ad73b5c6aa5e7 CMakeFiles/touchscreen_demo_SPIPIO_pio_h
+ef675ed82a42bb52905ad73b5c6aa5e7 CMakeFiles/ts_lcd_SPIPIO_pio_h
 2ceb1f1f2d7bdfb2ff75802dd95e3736 SPIPIO.pio.h
 7026e9ff7652dd7d2d132e3bbca90e1d pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin
 7026e9ff7652dd7d2d132e3bbca90e1d pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm

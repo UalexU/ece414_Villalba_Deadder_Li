@@ -232,8 +232,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/touchscreen_demo.dir/DependInfo.cmake"
-  "CMakeFiles/touchscreen_demo_SPIPIO_pio_h.dir/DependInfo.cmake"
+  "CMakeFiles/ts_lcd.dir/DependInfo.cmake"
+  "CMakeFiles/ts_lcd_SPIPIO_pio_h.dir/DependInfo.cmake"
   "pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/DependInfo.cmake"
   "pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/DependInfo.cmake"
   "pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/DependInfo.cmake"

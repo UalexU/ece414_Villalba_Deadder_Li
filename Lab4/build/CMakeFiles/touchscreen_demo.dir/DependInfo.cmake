@@ -149,7 +149,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab4/TFTMaster.c" "CMakeFiles/touchscreen_demo.dir/TFTMaster.c.obj" "gcc" "CMakeFiles/touchscreen_demo.dir/TFTMaster.c.obj.d"
   "C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab4/TouchScreen.c" "CMakeFiles/touchscreen_demo.dir/TouchScreen.c.obj" "gcc" "CMakeFiles/touchscreen_demo.dir/TouchScreen.c.obj.d"
   "C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab4/glcdfont.c" "CMakeFiles/touchscreen_demo.dir/glcdfont.c.obj" "gcc" "CMakeFiles/touchscreen_demo.dir/glcdfont.c.obj.d"
-  "C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab4/touchscreen_demo.c" "CMakeFiles/touchscreen_demo.dir/touchscreen_demo.c.obj" "gcc" "CMakeFiles/touchscreen_demo.dir/touchscreen_demo.c.obj.d"
+  "C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab4/main.c" "CMakeFiles/touchscreen_demo.dir/main.c.obj" "gcc" "CMakeFiles/touchscreen_demo.dir/main.c.obj.d"
+  "C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab4/ts_lcd.c" "CMakeFiles/touchscreen_demo.dir/ts_lcd.c.obj" "gcc" "CMakeFiles/touchscreen_demo.dir/ts_lcd.c.obj.d"
   "C:/Program Files/Raspberry Pi/Pico SDK v1.5.1/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp" "CMakeFiles/touchscreen_demo.dir/C_/Program_Files/Raspberry_Pi/Pico_SDK_v1.5.1/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj" "gcc" "CMakeFiles/touchscreen_demo.dir/C_/Program_Files/Raspberry_Pi/Pico_SDK_v1.5.1/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj.d"
   )
 
