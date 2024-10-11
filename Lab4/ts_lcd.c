@@ -9,21 +9,36 @@
 #include "ts_lcd.h"
 
 void ts_lcd_init(){
+    stdio_init_all();
     adc_init();
     //initialize screen
     tft_init_hw();
     tft_begin();
-    tft_setRotation(3); 
+    tft_setRotation(0); 
     tft_fillScreen(ILI9340_BLACK);  
+    tft_setTextSize(2);
+    tft_setTextColor2(ILI9340_WHITE);
+    
+    
 }
 
 // This function shall return true when a finger 
 // or stylus has been placed on the display; 
-bool get_ts_lcd(uint16_t *pz){
-    if (*pz < 1000) 
-        return true;
+bool get_ts_lcd(uint16_t *px, uint16_t *py)
+{
+
+    struct TSPoint p;
+    getPoint(&p);
+    if (!(p.z < 20000))
+    {
+        return false;
+    }
     else
-         return false;
+    {
+        *px = (p.x * (ILI9340_TFTWIDTH)) / 4100;
+        *py = (p.y * (ILI9340_TFTHEIGHT)) / 3800;
+        return true;
+    }
 }
 
 uint32_t interpolateX(uint16_t px){

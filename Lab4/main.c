@@ -16,13 +16,12 @@
  *
  */
 
-#include <stdio.h>
-#include "pico/stdlib.h"
-#include "hardware/gpio.h"
-#include "hardware/adc.h"
-#include "TouchScreen.h"
-#include "TFTMaster.h"
 #include "ts_lcd.h"
+#include "TFTMaster.h"
+#include <inttypes.h>
+#include "TouchScreen.h"
+#include <stdbool.h>
+#include <stdio.h>
 
 int main()
 {
@@ -31,48 +30,39 @@ int main()
     uint32_t x_value;
     uint32_t y_value;
 
-    struct TSPoint p;
-    p.x = 0;
-    p.y = 0;
-    p.z = 0;
+    uint16_t x, y; 
+    uint16_t px = &x;
+    uint16_t py = &y;
 
     while (1)
     {
-
-        getPoint(&p);
-        tft_fillScreen(ILI9340_BLACK);
-        // If screen touched
-        if (get_ts_lcd(&p.z))
+        if (get_ts_lcd(px, py))
         {
-            tft_setCursor(20, 100);
-            tft_setTextColor(ILI9340_WHITE);
-            tft_setTextSize(2);
-
-            // erase old text
-
-            tft_setTextColor(ILI9340_BLACK);
-            tft_writeString(buffer);
-
-            tft_setCursor(20, 100);
-            tft_setTextColor(ILI9340_WHITE);
-            sprintf(buffer, "x: %d, y: %d", interpolateX(p.y), interpolateY(p.x));
-            tft_writeString(buffer);
-
-
-            x_value = interpolateX(p.y); 
-            y_value = interpolateY(p.x);
-            sleep_ms(50);
+            if ((px != NULL) && (py != NULL)) // Checks the pointers aren't NULL
+            {
+                tft_fillScreen(ILI9340_BLACK);
+                // Crosshair:
+                tft_drawLine(*px - 5, *py, *px + 5, *py, ILI9340_YELLOW);
+                tft_drawLine(*px, *py - 5, *px, *py + 5, ILI9340_YELLOW);
+                // Location of press displayed as text:
+                sprintf(buffer, "Last location pressed was: %d, %d", *px, *py);
+                tft_setCursor(10, 10);
+                tft_writeString(buffer);
+            }
         }
-        else{
-            tft_setCursor(20, 100);
-            tft_setTextColor(ILI9340_WHITE);
-            sprintf(buffer,"x: %d, y: %d", x_value, y_value); //TOCHECK
+        else
+        {
+            tft_fillScreen(ILI9340_BLACK);
+            // Crosshair:
+            tft_drawLine(*px - 5, *py, *px + 5, *py, ILI9340_YELLOW);
+            tft_drawLine(*px, *py - 5, *px, *py + 5, ILI9340_YELLOW);
+            // Last location pressed displayed as text:
+            sprintf(buffer, "Last location pressed was: %d, %d", *px, *py);
+            tft_setCursor(10, 10);
             tft_writeString(buffer);
-
         }
-
-        tft_drawFastHLine(x_value-10, y_value, 20, ILI9340_BLUE);
-        tft_drawFastVLine(x_value, y_value-10, 20, ILI9340_BLUE);
+        sleep_ms(250); // Added to prevent excessive flickering
+    
     }
     return 1; 
 }
