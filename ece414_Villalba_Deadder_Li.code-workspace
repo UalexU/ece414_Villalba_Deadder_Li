@@ -27,7 +27,9 @@
             "xutility": "c",
             "tftmaster.h": "c",
             "pio.h": "c",
-            "ts_lcd.h": "c"
+            "ts_lcd.h": "c",
+            "stdio.h": "c",
+            "stdint.h": "c"
         }
     }
 }
