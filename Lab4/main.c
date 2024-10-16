@@ -23,46 +23,68 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+
+uint16_t x, y;
+uint16_t *px, *py;
 int main()
 {
+    struct TSPoint p;
+                p.x = 0;
+                p.y = 0;
+                p.z = 0;
     char buffer[30];
     ts_lcd_init();
     uint32_t x_value;
     uint32_t y_value;
-
-    uint16_t x, y; 
-    uint16_t px = &x;
-    uint16_t py = &y;
+    
+    
 
     while (1)
     {
-        if (get_ts_lcd(px, py))
-        {
-            if ((px != NULL) && (py != NULL)) // Checks the pointers aren't NULL
-            {
-                tft_fillScreen(ILI9340_BLACK);
-                // Crosshair:
-                tft_drawLine(*px - 5, *py, *px + 5, *py, ILI9340_YELLOW);
-                tft_drawLine(*px, *py - 5, *px, *py + 5, ILI9340_YELLOW);
-                // Location of press displayed as text:
-                sprintf(buffer, "Last location pressed was: %d, %d", *px, *py);
-                tft_setCursor(10, 10);
+        
+        // get input values:
+
+        getPoint(&p);
+
+        tft_fillScreen(ILI9340_BLACK);
+        
+
+        //if its touched, then write the location: 
+        if(get_ts_lcd(&p.z)){ 
+        
+
+                
+                tft_setCursor(40, 40);
+                tft_setTextColor(ILI9340_WHITE); tft_setTextSize(2);
+
+
+                tft_setTextColor(ILI9340_BLACK);
                 tft_writeString(buffer);
-            }
-        }
-        else
-        {
-            tft_fillScreen(ILI9340_BLACK);
-            // Crosshair:
-            tft_drawLine(*px - 5, *py, *px + 5, *py, ILI9340_YELLOW);
-            tft_drawLine(*px, *py - 5, *px, *py + 5, ILI9340_YELLOW);
-            // Last location pressed displayed as text:
-            sprintf(buffer, "Last location pressed was: %d, %d", *px, *py);
-            tft_setCursor(10, 10);
-            tft_writeString(buffer);
-        }
-        sleep_ms(250); // Added to prevent excessive flickering
+                
     
+                tft_setCursor(40, 40);
+                tft_setTextColor(ILI9340_WHITE);
+                sprintf(buffer,"x: %d, y: %d", interpolateX(p.x), interpolateY(p.y)); 
+                tft_writeString(buffer); 
+   
+                y_value = interpolateY(p.y);
+                x_value = interpolateX(p.x);
+
+                
+            
+        } else{
+            tft_setCursor(40,40);
+            tft_setTextColor(ILI9340_WHITE);
+            sprintf(buffer,"x: %d, y: %d", x_value, y_value); //TOCHECK
+            tft_writeString(buffer);
+
+            //print the old cursor 
+        }
+        sleep_ms(300);
+
+        tft_drawFastHLine( interpolateX(p.x)-15, interpolateY(p.y), 30, ILI9340_BLUE);
+        tft_drawFastVLine( interpolateY(p.x), interpolateY(p.y)-15, 30, ILI9340_BLUE);
+        
     }
     return 1; 
 }

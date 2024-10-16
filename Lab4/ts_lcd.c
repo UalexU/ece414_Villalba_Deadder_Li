@@ -8,56 +8,39 @@
 
 #include "ts_lcd.h"
 
-void ts_lcd_init(){
-    stdio_init_all();
+void ts_lcd_init()
+{
     adc_init();
-    //initialize screen
+    // initialize screen
     tft_init_hw();
     tft_begin();
-    tft_setRotation(0); 
-    tft_fillScreen(ILI9340_BLACK);  
-    tft_setTextSize(2);
-    tft_setTextColor2(ILI9340_WHITE);
-    
-    
+    tft_setRotation(0);
+    tft_fillScreen(ILI9340_BLACK);
 }
 
-// This function shall return true when a finger 
-// or stylus has been placed on the display; 
-bool get_ts_lcd(uint16_t *px, uint16_t *py)
+// This function shall return true when a finger
+// or stylus has been placed on the display;
+bool get_ts_lcd(uint16_t *pz)
 {
-
-    struct TSPoint p;
-    getPoint(&p);
-    if (!(p.z < 20000))
-    {
-        return false;
-    }
-    else
-    {
-        *px = (p.x * (ILI9340_TFTWIDTH)) / 4100;
-        *py = (p.y * (ILI9340_TFTHEIGHT)) / 3800;
+    if (*pz < 1500)
         return true;
-    }
+    return false;
 }
 
-uint32_t interpolateX(uint16_t px){
-    uint32_t x_pos = 0; 
+uint32_t interpolateY(uint32_t py)
+{
+    uint32_t y_pos = 0;
 
-    x_pos = (px)*(320)/(4096 -0); // Interpolation
+    y_pos = (py) * (320) / (4096 - 0) + 35; // Interpolation
 
-    return (320 - x_pos); 
+    return (320 - y_pos);
 }
 
-uint32_t interpolateY(uint16_t py){
-    uint32_t y_pos = 0; 
+uint32_t interpolateX(uint32_t px)
+{
+    uint32_t x_pos = 0;
 
-    y_pos = (py)*(240)/(2730 -0); // Interpolation
+    x_pos = (px) * (240) / (2730 - 0) - 70; // Interpolation
 
-    return (y_pos); 
+    return (x_pos);
 }
-
-
-
-
-
