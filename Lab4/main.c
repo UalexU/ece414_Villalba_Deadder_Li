@@ -64,26 +64,27 @@ int main()
     
                 tft_setCursor(40, 40);
                 tft_setTextColor(ILI9340_WHITE);
-                sprintf(buffer,"x: %d, y: %d", interpolateX(p.x), interpolateY(p.y)); 
+                sprintf(buffer,"x: %d, y: %d", interpolateX(p.y), interpolateY(p.x)); 
                 tft_writeString(buffer); 
    
-                y_value = interpolateY(p.y);
-                x_value = interpolateX(p.x);
+                y_value = interpolateY(p.x);
+                x_value = interpolateX(p.y);
 
                 
             
         } else{
             tft_setCursor(40,40);
             tft_setTextColor(ILI9340_WHITE);
-            sprintf(buffer,"x: %d, y: %d", x_value, y_value); //TOCHECK
+            sprintf(buffer,"x: %d, y: %d",x_value, y_value); //TOCHECK
             tft_writeString(buffer);
 
             //print the old cursor 
         }
-        sleep_ms(300);
+        sleep_ms(200);
 
-        tft_drawFastHLine( interpolateX(p.x)-15, interpolateY(p.y), 30, ILI9340_BLUE);
-        tft_drawFastVLine( interpolateY(p.x), interpolateY(p.y)-15, 30, ILI9340_BLUE);
+        tft_fillCircle(x_value, y_value, 15, ILI9340_BLUE); 
+        //tft_drawLine( x_value - 10, y_value-10,  x_value + 10, y_value+10, ILI9340_BLUE);
+        //tft_drawLine( y_value-10,  x_value-10, y_value+10, x_value+10, ILI9340_BLUE);
         
     }
     return 1; 
