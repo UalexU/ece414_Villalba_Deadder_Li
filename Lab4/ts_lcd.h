@@ -6,9 +6,9 @@
 
 
 
-bool get_ts_lcd(uint16_t *px, uint16_t *py);
+bool get_ts_lcd(uint16_t *pz);
 void ts_lcd_init();
-uint32_t interpolateX(uint16_t px);
-uint32_t interpolateY(uint16_t py);
+uint32_t interpolateX(uint32_t px);
+uint32_t interpolateY(uint32_t py);
 
 #endif
