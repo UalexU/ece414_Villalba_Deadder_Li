@@ -52,7 +52,7 @@ CMAKE_BINARY_DIR = C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\L
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles\main.dir\all
+all: CMakeFiles\ts_lcd.dir\all
 all: pico-sdk\all
 .PHONY : all
 
@@ -61,8 +61,8 @@ preinstall: pico-sdk\preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles\main.dir\clean
-clean: CMakeFiles\main_SPIPIO_pio_h.dir\clean
+clean: CMakeFiles\ts_lcd.dir\clean
+clean: CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\clean
 clean: pico-sdk\clean
 .PHONY : clean
 
@@ -1487,57 +1487,57 @@ pico-sdk\tools\clean:
 .PHONY : pico-sdk\tools\clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/main.dir
+# Target rules for target CMakeFiles/ts_lcd.dir
 
 # All Build rule for target.
-CMakeFiles\main.dir\all: CMakeFiles\main_SPIPIO_pio_h.dir\all
-CMakeFiles\main.dir\all: pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_padded_checksummed_asm.dir\all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\main.dir\depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\main.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62 "Built target main"
-.PHONY : CMakeFiles\main.dir\all
+CMakeFiles\ts_lcd.dir\all: CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\all
+CMakeFiles\ts_lcd.dir\all: pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_padded_checksummed_asm.dir\all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62 "Built target ts_lcd"
+.PHONY : CMakeFiles\ts_lcd.dir\all
 
 # Build rule for subdir invocation for target.
-CMakeFiles\main.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles 61
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\main.dir\all
+CMakeFiles\ts_lcd.dir\rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles 59
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles 0
-.PHONY : CMakeFiles\main.dir\rule
+.PHONY : CMakeFiles\ts_lcd.dir\rule
 
 # Convenience name for target.
-main: CMakeFiles\main.dir\rule
-.PHONY : main
+ts_lcd: CMakeFiles\ts_lcd.dir\rule
+.PHONY : ts_lcd
 
 # clean rule for target.
-CMakeFiles\main.dir\clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\main.dir\clean
-.PHONY : CMakeFiles\main.dir\clean
+CMakeFiles\ts_lcd.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\clean
+.PHONY : CMakeFiles\ts_lcd.dir\clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/main_SPIPIO_pio_h.dir
+# Target rules for target CMakeFiles/ts_lcd_SPIPIO_pio_h.dir
 
 # All Build rule for target.
-CMakeFiles\main_SPIPIO_pio_h.dir\all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_SPIPIO_pio_h.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\main_SPIPIO_pio_h.dir\depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_SPIPIO_pio_h.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\main_SPIPIO_pio_h.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=63 "Built target main_SPIPIO_pio_h"
-.PHONY : CMakeFiles\main_SPIPIO_pio_h.dir\all
+CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=63 "Built target ts_lcd_SPIPIO_pio_h"
+.PHONY : CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\all
 
 # Build rule for subdir invocation for target.
-CMakeFiles\main_SPIPIO_pio_h.dir\rule: cmake_check_build_system
+CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\main_SPIPIO_pio_h.dir\all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles 0
-.PHONY : CMakeFiles\main_SPIPIO_pio_h.dir\rule
+.PHONY : CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\rule
 
 # Convenience name for target.
-main_SPIPIO_pio_h: CMakeFiles\main_SPIPIO_pio_h.dir\rule
-.PHONY : main_SPIPIO_pio_h
+ts_lcd_SPIPIO_pio_h: CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\rule
+.PHONY : ts_lcd_SPIPIO_pio_h
 
 # clean rule for target.
-CMakeFiles\main_SPIPIO_pio_h.dir\clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_SPIPIO_pio_h.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\main_SPIPIO_pio_h.dir\clean
-.PHONY : CMakeFiles\main_SPIPIO_pio_h.dir\clean
+CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\clean
+.PHONY : CMakeFiles\ts_lcd_SPIPIO_pio_h.dir\clean
 
 #=============================================================================
 # Target rules for target pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir
@@ -1624,7 +1624,7 @@ pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_padded_checksummed_as
 pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_tx_pio_h.dir\all:
 	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_tx_pio_h.dir\build.make /nologo -$(MAKEFLAGS) pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_tx_pio_h.dir\depend
 	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_tx_pio_h.dir\build.make /nologo -$(MAKEFLAGS) pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_tx_pio_h.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=65 "Built target tinyusb_pico_pio_usb_usb_tx_pio_h"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=8 "Built target tinyusb_pico_pio_usb_usb_tx_pio_h"
 .PHONY : pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_tx_pio_h.dir\all
 
 # Build rule for subdir invocation for target.
@@ -1650,7 +1650,7 @@ pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_tx_pio_h.dir
 pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\all:
 	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\build.make /nologo -$(MAKEFLAGS) pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\depend
 	$(MAKE) $(MAKESILENT) -f pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\build.make /nologo -$(MAKEFLAGS) pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=64 "Built target tinyusb_pico_pio_usb_usb_rx_pio_h"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\build\CMakeFiles --progress-num=7 "Built target tinyusb_pico_pio_usb_usb_rx_pio_h"
 .PHONY : pico-sdk\src\rp2_common\tinyusb\CMakeFiles\tinyusb_pico_pio_usb_usb_rx_pio_h.dir\all
 
 # Build rule for subdir invocation for target.
