@@ -82,9 +82,9 @@ int main()
         }
         sleep_ms(200);
 
-        tft_fillCircle(x_value, y_value, 15, ILI9340_BLUE); 
-        //tft_drawLine( x_value - 10, y_value-10,  x_value + 10, y_value+10, ILI9340_BLUE);
-        //tft_drawLine( y_value-10,  x_value-10, y_value+10, x_value+10, ILI9340_BLUE);
+        //tft_fillCircle(x_value, y_value, 15, ILI9340_BLUE); 
+        tft_drawLine( x_value - 15, y_value-15,  x_value + 15, y_value+15, ILI9340_BLUE);
+        tft_drawLine( x_value - 15,  y_value+15, x_value + 15, y_value-15, ILI9340_BLUE);
         
     }
     return 1; 
