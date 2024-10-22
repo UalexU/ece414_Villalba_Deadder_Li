@@ -1,5 +1,5 @@
-C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab5/build/CMakeFiles/main.dir
-C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab5/build/CMakeFiles/main_SPIPIO_pio_h.dir
+C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab5/build/CMakeFiles/ts_lcd.dir
+C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab5/build/CMakeFiles/ts_lcd_SPIPIO_pio_h.dir
 C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab5/build/CMakeFiles/edit_cache.dir
 C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab5/build/CMakeFiles/rebuild_cache.dir
 C:/Users/villalba/Documents/pico/ece414_Villalba_Deadder_Li/Lab5/build/pico-sdk/CMakeFiles/edit_cache.dir

@@ -22,71 +22,53 @@
 #include "TouchScreen.h"
 #include <stdbool.h>
 #include <stdio.h>
-#include "display.h"
-#include "calculator_fsm.h"
+#include "hardware/uart.h"
+
+#define UART_ID uart0
+#define BAUD_RATE 115200
 
 uint16_t x, y;
 uint16_t *px, *py;
 int main()
 {
     struct TSPoint p;
-                p.x = 0;
-                p.y = 0;
-                p.z = 0;
-    char buffer[30];
+    p.x = 0;
+    p.y = 0;
+    p.z = 0;
+    //char buffer[30];
     ts_lcd_init();
+    stdio_init_all();
     uint32_t x_value;
     uint32_t y_value;
-    
-    
+    uart_init(UART_ID, BAUD_RATE);
+    tft_setTextSize(3);
 
     while (1)
     {
-        
+
         // get input values:
 
         getPoint(&p);
 
-        tft_fillScreen(ILI9340_BLACK);
+        // if its touched, then write the location:
+        if (get_ts_lcd(&p.z))
+        {
+
+            tft_fillScreen(ILI9340_BLACK);
+            y_value = interpolateY(p.x);
+            x_value = interpolateX(p.y);
+            printf("printf demands to be seen and heard!\n\n");
+
         
-
-        //if its touched, then write the location: 
-        if(get_ts_lcd(&p.z)){ 
-        
-
-                
-                tft_setCursor(40, 40);
-                tft_setTextColor(ILI9340_WHITE); tft_setTextSize(2);
-
-
-                tft_setTextColor(ILI9340_BLACK);
-                tft_writeString(buffer);
-                
-    
-                tft_setCursor(40, 40);
-                tft_setTextColor(ILI9340_WHITE);
-                sprintf(buffer,"x: %d, y: %d", interpolateX(p.x), interpolateY(p.y)); 
-                tft_writeString(buffer); 
-   
-                y_value = interpolateY(p.y);
-                x_value = interpolateX(p.x);
-
-                
-            
-        } else{
-            tft_setCursor(40,40);
-            tft_setTextColor(ILI9340_WHITE);
-            sprintf(buffer,"x: %d, y: %d", x_value, y_value); //TOCHECK
-            tft_writeString(buffer);
-
-            //print the old cursor 
         }
-        sleep_ms(300);
-
-        draw_cursor( p.x, p.y);
-        // tft_drawFastHLine( interpolateX(p.x)-15, interpolateY(p.y), 30, ILI9340_BLUE);
-        // tft_drawFastVLine( interpolateY(p.x), interpolateY(p.y)-15, 30, ILI9340_BLUE);
-        
+        // tft_fillCircle(x_value, y_value, 15, ILI9340_BLUE);
+        tft_drawLine(x_value - 15, y_value - 15, x_value + 15, y_value + 15, ILI9340_BLUE);
+        tft_drawLine(x_value - 15, y_value + 15, x_value + 15, y_value - 15, ILI9340_BLUE);
+        display();
+        sleep_ms(100);
     }
-    return 1; 
+    return 1;
 }
+
+
+
