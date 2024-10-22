@@ -49,172 +49,178 @@ uint32_t interpolateY(uint32_t px)
     return (x_pos);
 }
 
-void display(char buffer[30]){
+void display(){
+    char buffer[40];  // Increased the buffer size to 40
+    assert(sizeof(buffer) > 30);  // Make sure buffer is at least 30
     int x = 5;
-        int y = (240 - 10) / 5;
-        int x_text, y_text, x_offset, y_offset = 0;
-        x_offset = 75;
-        y_offset = 50;
-        x_text = 8;
-        y_text = 7;
-        int total_x, total_y; // This values are the parameters in the rectangle and logical functions
+    int y = (240 - 10) / 5;
+    int x_text, y_text, x_offset, y_offset = 0;
+    x_offset = 75;
+    y_offset = 50;
+    x_text = 8;
+    y_text = 7;
+    int total_x, total_y; // This values are the parameters in the rectangle and logical functions
 
-     for (int i = 0; i < 4; i++)
+    // Begin debugging print
+    printf("Entering display function...\n");
+    printf("Buffer size: %lu\n", sizeof(buffer));  // Print buffer size
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
         {
-            for (int j = 0; j < 4; j++)
+            // Write debug information at key points
+            printf("i: %d, j: %d\n", i, j);
+
+            total_x = 10 + i * x_offset; 
+            total_y = (240 - 20) / 5 + j * y_offset; 
+
+            if (i == 1 && j == 3)
             {
-                total_x = 10 + i * x_offset; 
-                total_y =  (240 - 20) / 5 + j * y_offset; 
-                if (i == 1 && j == 3)
+                tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_RED);
+                tft_setTextColor(ILI9340_BLACK);
+                tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
+
+                sprintf(buffer, "C");  // Write "C" into the buffer
+                printf("Buffer content (C): %s\n", buffer);  // Print buffer content
+                tft_writeString(buffer);
+            }
+            else if (i == 2 && j == 3)
+            {
+                tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_BLUE);
+                tft_setTextColor(ILI9340_BLACK);
+                tft_setCursor((total_x) + (320 / 5 + 10) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
+
+                sprintf(buffer, "=");  // Write "=" into the buffer
+                printf("Buffer content (=): %s\n", buffer);  // Print buffer content
+                tft_writeString(buffer);
+            }
+            else if (i == 3)
+            {
+                tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_GREEN);
+                tft_setTextColor(ILI9340_BLACK);
+
+                // selecting an operator based on row
+                char operator;
+                switch (j)
                 {
-                    tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_RED);
-                    // writing "C"
-                    tft_setTextColor(ILI9340_BLACK);
-
-                    // adjust cursor to center text inside the red rectangle
-                    tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
-
-                    // print "C" inside buffer and write it to the display
-                    sprintf(buffer, "C");
-                    tft_writeString(buffer);
+                case 0:
+                    operator = '+';
+                    break;
+                case 1:
+                    operator = '-';
+                    break;
+                case 2:
+                    operator = 'x';
+                    break;
+                case 3:
+                    operator = '/';
+                    break;
+                default:
+                    operator = ' ';
                 }
-                else if (i == 2 && j == 3)
+
+                tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
+
+                sprintf(buffer, "%c", operator);  // Write operator into the buffer
+                printf("Operator buffer content (%c): %s\n", operator, buffer);  // Print buffer content
+                tft_writeString(buffer);
+            }
+            else if (i == 0)
+            {
+                tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
+                tft_setTextColor(ILI9340_BLACK);
+                char operand;
+                switch (j)
                 {
-                    tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_BLUE);
-
-                    // writing "="
-                    tft_setTextColor(ILI9340_BLACK);
-
-                    // adjust cursor to center text inside the red rectangle
-                    tft_setCursor((total_x) + (320 / 5 + 10) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
-
-                    // print "=" inside buffer and write it to the display
-                    sprintf(buffer, "=");
-                    tft_writeString(buffer);
+                case 0:
+                    operand = '7';
+                    break;
+                case 1:
+                    operand = '4';
+                    break;
+                case 2:
+                    operand = '1';
+                    break;
+                case 3:
+                    operand = '0';
+                    break;
+                default:
+                    operand = ' ';
                 }
-                else if (i == 3)
+
+                tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
+
+                sprintf(buffer, "%c", operand);  // Write operand into the buffer
+                printf("Operand buffer content (%c): %s\n", operand, buffer);  // Print buffer content
+                tft_writeString(buffer);
+            }
+            else if (i == 1)
+            {
+                tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
+                tft_setTextColor(ILI9340_BLACK);
+                char operand1;
+                switch (j)
                 {
-                    tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_GREEN);
-                    tft_setTextColor(ILI9340_BLACK);
-
-                    // selecting an operator based on row
-                    char operator;
-                    switch (j)
-                    {
-                    case 0:
-                        operator= '+';
-                        break;
-                    case 1:
-                        operator= '-';
-                        break;
-                    case 2:
-                        operator= 'x';
-                        break;
-                    case 3:
-                        operator= '/';
-                        break;
-                    default:
-                        operator= ' ';
-                    }
-
-                    tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
-
-                    // write operators to display
-                    sprintf(buffer, "%c", operator);
-                    tft_writeString(buffer);
+                case 0:
+                    operand1 = '8';
+                    break;
+                case 1:
+                    operand1 = '5';
+                    break;
+                case 2:
+                    operand1 = '2';
+                    break;
+                case 3:
+                    operand1 = 'C';
+                    break;
+                default:
+                    operand1 = ' ';
                 }
-                else if (i == 0)
+
+                tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
+
+                sprintf(buffer, "%c", operand1);  // Write operand into the buffer
+                printf("Operand1 buffer content (%c): %s\n", operand1, buffer);  // Print buffer content
+                tft_writeString(buffer);
+            }
+            else if (i == 2)
+            {
+                tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
+                tft_setTextColor(ILI9340_BLACK);
+                char operand2;
+                switch (j)
                 {
-                    tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
-                    tft_setTextColor(ILI9340_BLACK);
-                    char operand;
-                    switch (j)
-                    {
-                    case 0:
-                        operand = '7';
-                        break;
-                    case 1:
-                        operand = '4';
-                        break;
-                    case 2:
-                        operand = '1';
-                        break;
-                    case 3:
-                        operand = '0';
-                        break;
-                    default:
-                        operand = ' ';
-                    }
-
-                    tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
-
-                    // write operators to display
-                    sprintf(buffer, "%c", operand);
-                    tft_writeString(buffer);
+                case 0:
+                    operand2 = '9';
+                    break;
+                case 1:
+                    operand2 = '6';
+                    break;
+                case 2:
+                    operand2 = '3';
+                    break;
+                case 3:
+                    operand2 = '=';
+                    break;
+                default:
+                    operand2 = ' ';
                 }
-                else if (i == 1)
-                {
-                    tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
-                    tft_setTextColor(ILI9340_BLACK);
-                    char operand1;
-                    switch (j)
-                    {
-                    case 0:
-                        operand1 = '8';
-                        break;
-                    case 1:
-                        operand1 = '5';
-                        break;
-                    case 2:
-                        operand1 = '2';
-                        break;
-                    case 3:
-                        operand1 = 'C';
-                        break;
-                    default:
-                        operand1 = ' ';
-                    }
 
-                    tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
+                tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
-                    // write operators to display
-                    sprintf(buffer, "%c", operand1);
-                    tft_writeString(buffer);
-                }
-                else if (i == 2)
-                {
-                    tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
-                    tft_setTextColor(ILI9340_BLACK);
-                    char operand2;
-                    switch (j)
-                    {
-                    case 0:
-                        operand2 = '9';
-                        break;
-                    case 1:
-                        operand2 = '6';
-                        break;
-                    case 2:
-                        operand2 = '3';
-                        break;
-                    case 3:
-                        operand2 = '=';
-                        break;
-                    default:
-                        operand2 = ' ';
-                    }
-
-                    tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
-
-                    // write operators to display
-                    sprintf(buffer, "%c", operand2);
-                    tft_writeString(buffer);
-                }
-                else
-                {
-
-                    tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
-                }
+                sprintf(buffer, "%c", operand2);  // Write operand into the buffer
+                printf("Operand2 buffer content (%c): %s\n", operand2, buffer);  // Print buffer content
+                tft_writeString(buffer);
+            }
+            else
+            {
+                tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
+                tft_writeString(buffer);
+                printf("Default block reached: i=%d, j=%d\n", i, j);  // Debugging default case
             }
         }
     }
+
+    printf("Exiting display function.\n");  // Debugging exit point
+}

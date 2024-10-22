@@ -35,7 +35,7 @@ int main()
     p.x = 0;
     p.y = 0;
     p.z = 0;
-    char buffer[30];
+    //char buffer[30];
     ts_lcd_init();
     stdio_init_all();
     uint32_t x_value;
@@ -64,7 +64,7 @@ int main()
         // tft_fillCircle(x_value, y_value, 15, ILI9340_BLUE);
         tft_drawLine(x_value - 15, y_value - 15, x_value + 15, y_value + 15, ILI9340_BLUE);
         tft_drawLine(x_value - 15, y_value + 15, x_value + 15, y_value - 15, ILI9340_BLUE);
-        display(buffer[30]);
+        display();
         sleep_ms(100);
     }
     return 1;
