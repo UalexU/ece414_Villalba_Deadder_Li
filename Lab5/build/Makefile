@@ -1281,6 +1281,30 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\main.c.s
 .PHONY : main.c.s
 
+operations.obj: operations.c.obj
+.PHONY : operations.obj
+
+# target to build an object file
+operations.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\operations.c.obj
+.PHONY : operations.c.obj
+
+operations.i: operations.c.i
+.PHONY : operations.i
+
+# target to preprocess a source file
+operations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\operations.c.i
+.PHONY : operations.c.i
+
+operations.s: operations.c.s
+.PHONY : operations.s
+
+# target to generate assembly for a file
+operations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\operations.c.s
+.PHONY : operations.c.s
+
 ts_lcd.obj: ts_lcd.c.obj
 .PHONY : ts_lcd.obj
 
@@ -1455,6 +1479,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... operations.obj
+	@echo ... operations.i
+	@echo ... operations.s
 	@echo ... ts_lcd.obj
 	@echo ... ts_lcd.i
 	@echo ... ts_lcd.s

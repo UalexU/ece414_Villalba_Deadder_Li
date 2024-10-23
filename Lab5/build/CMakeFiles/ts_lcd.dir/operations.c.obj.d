@@ -1,5 +1,5 @@
-CMakeFiles\ts_lcd.dir\main.c.obj: \
- C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\main.c \
+CMakeFiles\ts_lcd.dir\operations.c.obj: \
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.c \
  C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\ts_lcd.h \
  C:\PROGRA~1\RASPBE~1\PICOSD~1.1\pico-sdk\src\common\PICO_S~1\include/pico/stdlib.h \
  C:\PROGRA~1\RASPBE~1\PICOSD~1.1\pico-sdk\src\common\PICO_B~1\include/pico.h \
@@ -77,5 +77,4 @@ CMakeFiles\ts_lcd.dir\main.c.obj: \
  c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\_pthreadtypes.h \
  c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\sched.h \
  c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\machine\types.h \
- c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\stdio.h \
- C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.h
+ c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\stdio.h

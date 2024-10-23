@@ -92,6 +92,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ts_lcd.dir/glcdfont.c.obj.d"
   "CMakeFiles/ts_lcd.dir/main.c.obj"
   "CMakeFiles/ts_lcd.dir/main.c.obj.d"
+  "CMakeFiles/ts_lcd.dir/operations.c.obj"
+  "CMakeFiles/ts_lcd.dir/operations.c.obj.d"
   "CMakeFiles/ts_lcd.dir/ts_lcd.c.obj"
   "CMakeFiles/ts_lcd.dir/ts_lcd.c.obj.d"
   "ts_lcd.elf"

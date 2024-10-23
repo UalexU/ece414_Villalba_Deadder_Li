@@ -50,7 +50,7 @@ uint32_t interpolateY(uint32_t px)
 }
 
 void display(){
-    char buffer[40];  // Increased the buffer size to 40
+    char buffer[31];  
     assert(sizeof(buffer) > 30);  // Make sure buffer is at least 30
     int x = 5;
     int y = (240 - 10) / 5;
