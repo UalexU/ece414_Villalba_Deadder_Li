@@ -29,7 +29,9 @@
             "pio.h": "c",
             "ts_lcd.h": "c",
             "stdio.h": "c",
-            "stdint.h": "c"
+            "stdint.h": "c",
+            "touchscreen.h": "c",
+            "operations.h": "c"
         }
     }
 }

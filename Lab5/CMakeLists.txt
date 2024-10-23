@@ -16,6 +16,7 @@ target_sources(ts_lcd PRIVATE
     TouchScreen.c
     TFTMaster.c
     glcdfont.c
+    operations.c
     )
 
 target_link_libraries(ts_lcd PRIVATE 

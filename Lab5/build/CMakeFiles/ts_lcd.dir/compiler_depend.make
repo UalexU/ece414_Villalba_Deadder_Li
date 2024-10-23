@@ -1968,6 +1968,88 @@ CMakeFiles\ts_lcd.dir\main.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1
 CMakeFiles\ts_lcd.dir\main.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\sched.h"
 CMakeFiles\ts_lcd.dir\main.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\types.h"
 CMakeFiles\ts_lcd.dir\main.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\stdio.h"
+CMakeFiles\ts_lcd.dir\main.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.h
+
+
+CMakeFiles\ts_lcd.dir\operations.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.c
+CMakeFiles\ts_lcd.dir\operations.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\ts_lcd.h
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_stdlib\include\pico\stdlib.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\assert.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdbool.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\assert.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\newlib.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_newlib_version.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\config.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\ieeefp.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\features.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdint.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdint.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_default_types.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_intsup.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_stdint.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stddef.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: generated\pico_base\pico\version.h
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\config.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: generated\pico_base\pico\config_autogen.h
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\boards\include\boards\pico.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\cmsis\include\cmsis\rename_exceptions.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_platform\include\pico\platform.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\platform_defs.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\addressmap.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\sio.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\cdefs.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\types.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_base\include\pico\error.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio\include\pico\stdio.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\common\pico_time\include\pico\time.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_timer\include\hardware\timer.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\timer.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_base\include\hardware\address_mapped.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\timer.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_gpio\include\hardware\gpio.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\sio.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\interp.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\padsbank0.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\pads_bank0.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\iobank0.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\io_bank0.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_irq\include\hardware\irq.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\intctrl.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\m0plus.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_uart\include\hardware\uart.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\uart.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\uart.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\dreq.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\pico_stdio_uart\include\pico\stdio_uart.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\TouchScreen.h
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2_common\hardware_adc\include\hardware\adc.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_structs\include\hardware\structs\adc.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\pico-sdk\src\rp2040\hardware_regs\include\hardware\regs\adc.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\TFTMaster.h
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\inttypes.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_locale.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\stdio.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\lib\gcc\arm-none-eabi\10.3.1\include\stdarg.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\reent.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\_ansi.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_types.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_types.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\lock.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\types.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\endian.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\_endian.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\select.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_sigset.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_timeval.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\timespec.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_timespec.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\_pthreadtypes.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\sched.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\types.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\stdio.h"
 
 
 CMakeFiles\ts_lcd.dir\ts_lcd.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\ts_lcd.c
@@ -2439,5 +2521,9 @@ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\TouchScreen.c:
 C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\TouchScreen.h:
 
 C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\main.c:
+
+C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.h:
+
+C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.c:
 
 C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\ts_lcd.c:
