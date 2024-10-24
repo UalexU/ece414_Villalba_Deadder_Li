@@ -8,13 +8,12 @@
 char get_button(int16_t x, int16_t y);
 void calculator_fsm();
 
-typedef enum state{
+typedef enum {
     INIT,
-    ADD,
-    SUB,
-    MULT,
-    DIV,
-    EQUAL
-}state;
+    NUM,
+    OPERATOR,
+    CALCULATOR,
+    EQUALS
+}state_t;
 
 #endif

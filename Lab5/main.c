@@ -52,6 +52,7 @@ int main()
         // get input values:
 
         getPoint(&p);
+      
 
         // if its touched, then write the location:
         if (get_ts_lcd(&p.z))
@@ -61,6 +62,8 @@ int main()
             y_value = interpolateY(p.x);
             x_value = interpolateX(p.y);
             printf("printf demands to be seen and heard!\n\n");
+             calculator_fsm(); 
+          
 
             // Debuggin position
             tft_setCursor(20, 20);

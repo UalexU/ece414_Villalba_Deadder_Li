@@ -2050,6 +2050,7 @@ CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK 
 CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\sched.h"
 CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\machine\types.h"
 CMakeFiles\ts_lcd.dir\operations.c.obj: "C:\Program Files\Raspberry Pi\Pico SDK v1.5.1\gcc-arm-none-eabi\arm-none-eabi\include\sys\stdio.h"
+CMakeFiles\ts_lcd.dir\operations.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.h
 
 
 CMakeFiles\ts_lcd.dir\ts_lcd.c.obj: C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\ts_lcd.c
