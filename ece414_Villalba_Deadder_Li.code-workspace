@@ -31,7 +31,8 @@
             "stdio.h": "c",
             "stdint.h": "c",
             "touchscreen.h": "c",
-            "operations.h": "c"
+            "operations.h": "c",
+            "xstring": "c"
         }
     }
 }

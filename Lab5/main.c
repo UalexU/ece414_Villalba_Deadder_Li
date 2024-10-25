@@ -25,32 +25,35 @@
 #include "hardware/uart.h"
 #include "operations.h"
 #include <stdint.h>
-
-#define UART_ID uart0
-#define BAUD_RATE 115200
+#include "uart.h"
 
 uint16_t x, y;
 uint16_t *px, *py;
 int main()
-{
+{   
+    uint16_t x_value;
+    uint16_t y_value;
+    char buffer[30];
+
     struct TSPoint p;
     p.x = 0;
     p.y = 0;
     p.z = 0;
-    // char buffer[30];
+
+
     ts_lcd_init();
-    stdio_init_all();
-    uint16_t x_value;
-    uint16_t y_value;
-    char buffer[30];
-    uart_init(UART_ID, BAUD_RATE);
+    my_uart_init();
+    calculator_init();
+    
     tft_setTextSize(3);
+    
+    
 
     while (1)
     {
 
         // get input values:
-
+ 
         getPoint(&p);
       
 
@@ -61,34 +64,41 @@ int main()
             tft_fillScreen(ILI9340_BLACK);
             y_value = interpolateY(p.x);
             x_value = interpolateX(p.y);
-            printf("printf demands to be seen and heard!\n\n");
-             calculator_fsm(); 
-          
+            //printf("printf demands to be seen and heard!\n\n");
+            
+            // Calling FSM with the logic of the calculator
+            
 
-            // Debuggin position
-            tft_setCursor(20, 20);
-            tft_setTextColor(ILI9340_WHITE);
-            sprintf(buffer, "button: %c", get_button(x_value, y_value));
-            tft_writeString(buffer);
+          
 
             // Get button
             // get_button(x_value, y_value);
         }
-        else
-        {
-            tft_setCursor(20, 20);
+
+          // Debuggin position
+            tft_setCursor(5, 15);
             tft_setTextColor(ILI9340_WHITE);
             sprintf(buffer, "button: %c", get_button(x_value, y_value));
+            
             tft_writeString(buffer);
-        }
-
-        //     //print the old cursor
+        // else
+        // {
+        //     tft_setCursor(20, 20);
+        //     tft_setTextColor(ILI9340_WHITE);
+        //     sprintf(buffer, "button: %c", get_button(x_value, y_value));
+        //     tft_writeString(buffer);
         // }
-        // tft_fillCircle(x_value, y_value, 15, ILI9340_BLUE);
+
+       calculator_fsm(); 
+
+        //Drawing calculator
+        display();
+
+        // Drawing pressed location
         tft_drawLine(x_value - 15, y_value - 15, x_value + 15, y_value + 15, ILI9340_BLUE);
         tft_drawLine(x_value - 15, y_value + 15, x_value + 15, y_value - 15, ILI9340_BLUE);
-        // calculator_fsm();
-        display();
+        
+        
         sleep_ms(100);
     }
     return 1;

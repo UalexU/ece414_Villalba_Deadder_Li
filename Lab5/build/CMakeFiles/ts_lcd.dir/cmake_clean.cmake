@@ -96,6 +96,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ts_lcd.dir/operations.c.obj.d"
   "CMakeFiles/ts_lcd.dir/ts_lcd.c.obj"
   "CMakeFiles/ts_lcd.dir/ts_lcd.c.obj.d"
+  "CMakeFiles/ts_lcd.dir/uart.c.obj"
+  "CMakeFiles/ts_lcd.dir/uart.c.obj.d"
   "ts_lcd.elf"
   "ts_lcd.elf.manifest"
   "ts_lcd.pdb"

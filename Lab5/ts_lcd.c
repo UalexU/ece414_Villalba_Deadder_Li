@@ -61,16 +61,11 @@ void display(){
     y_text = 7;
     int total_x, total_y; // This values are the parameters in the rectangle and logical functions
 
-    // Begin debugging print
-    printf("Entering display function...\n");
-    printf("Buffer size: %lu\n", sizeof(buffer));  // Print buffer size
-
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
         {
-            // Write debug information at key points
-            printf("i: %d, j: %d\n", i, j);
+
 
             total_x = 10 + i * x_offset; 
             total_y = (240 - 20) / 5 + j * y_offset; 
@@ -82,7 +77,6 @@ void display(){
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
                 sprintf(buffer, "C");  // Write "C" into the buffer
-                printf("Buffer content (C): %s\n", buffer);  // Print buffer content
                 tft_writeString(buffer);
             }
             else if (i == 2 && j == 3)
@@ -92,7 +86,7 @@ void display(){
                 tft_setCursor((total_x) + (320 / 5 + 10) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
                 sprintf(buffer, "=");  // Write "=" into the buffer
-                printf("Buffer content (=): %s\n", buffer);  // Print buffer content
+
                 tft_writeString(buffer);
             }
             else if (i == 3)
@@ -123,7 +117,7 @@ void display(){
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
                 sprintf(buffer, "%c", operator);  // Write operator into the buffer
-                printf("Operator buffer content (%c): %s\n", operator, buffer);  // Print buffer content
+
                 tft_writeString(buffer);
             }
             else if (i == 0)
@@ -152,7 +146,7 @@ void display(){
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
                 sprintf(buffer, "%c", operand);  // Write operand into the buffer
-                printf("Operand buffer content (%c): %s\n", operand, buffer);  // Print buffer content
+
                 tft_writeString(buffer);
             }
             else if (i == 1)
@@ -181,7 +175,7 @@ void display(){
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
                 sprintf(buffer, "%c", operand1);  // Write operand into the buffer
-                printf("Operand1 buffer content (%c): %s\n", operand1, buffer);  // Print buffer content
+
                 tft_writeString(buffer);
             }
             else if (i == 2)
@@ -210,17 +204,17 @@ void display(){
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
                 sprintf(buffer, "%c", operand2);  // Write operand into the buffer
-                printf("Operand2 buffer content (%c): %s\n", operand2, buffer);  // Print buffer content
+
                 tft_writeString(buffer);
             }
             else
             {
                 tft_fillRoundRect(total_x, total_y, 320 / 5 + 8, 240 / 5, 10, ILI9340_WHITE);
                 tft_writeString(buffer);
-                printf("Default block reached: i=%d, j=%d\n", i, j);  // Debugging default case
+
             }
         }
     }
 
-    printf("Exiting display function.\n");  // Debugging exit point
+   
 }

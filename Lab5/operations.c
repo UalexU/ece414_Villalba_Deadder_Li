@@ -7,221 +7,227 @@
 #include "pico/stdlib.h"
 #include <stdint.h>
 #include "operations.h"
+#include "uart.h"
 
 bool operator_press = false;
 bool operand_press = false;
 int char_convert;
 char current_operator;
 char buffer[30];
-int result = 0; //so many global variables bro we're cooked
+char text_displayed[20]; // String of text
+int result = 0; // so many global variables bro we're cooked
 state_t current_state;
+int num1 = 0; // initialize num1
+int num2 = 0; // initialize num2
 
 char get_button(int16_t x, int16_t y)
 {
-    char button_pressed;
+    char button_pressed = ' ';
 
     if (x < 80 && x > 11)
     {
         if (y > 43 && y < 90)
         {
             button_pressed = '7';
-            char_convert = button_pressed - '7'; // converting to int
-            operand_press = true;
         }
         else if (y > 96 && y < 145)
         {
             button_pressed = '4';
-            char_convert = button_pressed - '4';
-            operand_press = true;
         }
         else if (y > 148 && y < 196)
         {
             button_pressed = '1';
-            char_convert = button_pressed - '1';
-            operand_press = true;
         }
         else if (y > 200 && y < 240)
         {
             button_pressed = '0';
-            int char_convert = button_pressed - '0';
-            operand_press = true;
         }
-        else
-            button_pressed = ' ';
     }
-
     else if (x < 156 && x > 85)
     {
         if (y > 43 && y < 90)
         {
             button_pressed = '8';
-            char_convert = button_pressed - '8';
-            operand_press = true;
         }
         else if (y > 96 && y < 145)
         {
             button_pressed = '5';
-            char_convert = button_pressed - '5';
-            operand_press = true;
         }
         else if (y > 148 && y < 196)
         {
             button_pressed = '2';
-            char_convert = button_pressed - '2';
-            operand_press = true;
         }
         else if (y > 200 && y < 240)
         {
             button_pressed = 'C';
         }
-        else
-            button_pressed = ' ';
     }
-
     else if (x < 230 && x > 161)
     {
         if (y > 43 && y < 90)
         {
             button_pressed = '9';
-            char_convert = button_pressed - '9';
-            operand_press = true;
         }
         else if (y > 96 && y < 145)
         {
             button_pressed = '6';
-            char_convert = button_pressed - '6';
-            operand_press = true;
         }
         else if (y > 148 && y < 196)
         {
             button_pressed = '3';
-            char_convert = button_pressed - '3';
-            operand_press = true;
         }
         else if (y > 200 && y < 240)
         {
             button_pressed = '=';
-            current_operator = button_pressed;
-            operator_press = true;
         }
-        else
-            button_pressed = ' ';
     }
-
     else if (x < 308 && x > 236)
     {
         if (y > 43 && y < 90)
         {
             button_pressed = '+';
-            operator_press = true;
-            current_operator = button_pressed;
         }
         else if (y > 96 && y < 145)
         {
             button_pressed = '-';
-            operator_press = true;
-            current_operator = button_pressed;
         }
         else if (y > 148 && y < 196)
         {
             button_pressed = 'x';
-            operator_press = true;
-            current_operator = button_pressed;
         }
         else if (y > 200 && y < 240)
         {
             button_pressed = '/';
+        }
+    }
+
+    if (button_pressed != ' ')
+    {
+        if (button_pressed >= '0' && button_pressed <= '9')
+        {
+            char_convert = button_pressed - '0'; // conversion to int
+            operand_press = true;
+        }
+        else if (button_pressed == '+' || button_pressed == '-' || button_pressed == 'x' || button_pressed == '/')
+        {
             operator_press = true;
             current_operator = button_pressed;
         }
-        else
-            button_pressed = ' ';
     }
-    else
-        button_pressed = ' ';
 
     return button_pressed;
 }
 
-
-void calculator_init(void)
+void calculator_init()
 {
-    current_state= INIT; // start in init state
+    current_state = INIT; // start in init state
+    num1 = 0;             // reset num1
+    num2 = 0;             // reset num2
+    uart_print_fsm_state("INIT"); 
+    
+
 }
 
 void calculator_fsm()
 {
-    char current_operator;
-    int num1; // store operands
-    int num2;
-    bool num1_pressed = false;
-    bool num2_pressed = false; // ensure that num1 and 2 have been pressed before moving to the next state
-
+    
     switch (current_state)
     {
     case INIT:
+    
         if (operand_press)
         {
-            char_convert = num1;
-            num1_pressed = true;
-            operand_press = false; // set it back to false
-            current_state= NUM;
+            num1 = char_convert; // start building num1
+            current_state = NUM;
+            operand_press = false; // reset
+            uart_print_fsm_state("NUM"); 
         }
         break;
 
     case NUM:
-        if (operator_press && num1_pressed)
+        if (operand_press)
+        {
+            num1 = num1 * 10 + char_convert; // build num1
+            sprintf(text_displayed, "%d", num1); // Add the number to be displayed
+            //uart_debug(text_displayed); 
+            operand_press = false;           // reset
+            
+        }
+        else if (operator_press)
         {
             current_state = OPERATOR;
-            operator_press = false;
+            operator_press = false; // reset
+            uart_print_fsm_state("OPERATOR"); 
         }
         break;
 
-    case OPERATOR: // at this point num1 and an operator have been pressed
+    case OPERATOR:
         if (operand_press)
         {
-            num2 = char_convert;   // store the next operand
-            num2_pressed = true;
-            operand_press = false; // set back to false
-           current_state= CALCULATOR;
+            num2 = char_convert; // start building num2
+            current_state = NUM2;
+            uart_print_fsm_state("NUM2"); 
+            operand_press = false; // reset
+        }
+        break;
+
+    case NUM2:
+        if (operand_press)
+        {
+            num2 = num2 * 10 + char_convert; // build num2
+            operand_press = false;           // reset
+        }
+        else if (operator_press)
+        {
+            current_state = CALCULATOR; 
+            uart_print_fsm_state("CALCULATOR"); 
+            operator_press = false;     // reset
         }
         break;
 
     case CALCULATOR:
-        if (num1_pressed && num2_pressed)
+        // ensure we have both numbers and an operator
+        if (current_operator && num1 != 0 && num2 != 0)
         {
-            
-            // calculations
             switch (current_operator)
             {
-            case '+': // add
+            case '+':
                 result = num1 + num2;
-                current_state = EQUALS;
                 break;
-            case '-': // subtract
+            case '-':
                 result = num1 - num2;
-               current_state = EQUALS;
                 break;
-            case 'x': // multiply
+            case 'x':
                 result = num1 * num2;
-                current_state = EQUALS;
                 break;
-            case '/': // divide -- need to work on divide by 0.
-                result = num1 / num2;
-                current_state = EQUALS;
+            case '/':
+                if (num2 != 0)
+                {
+                    result = num1 / num2;
+                }
+                else
+                {
+                    //work on this 9imlazuy)
+                }
                 break;
             }
+            current_state = EQUALS; // move to equals state
+            uart_print_fsm_state("EQUALS"); 
         }
         break;
 
     case EQUALS:
-        if (current_operator == '=' && operand_press)
+        if (operator_press && current_operator == '=')
         {
             tft_setCursor(20, 20);
             tft_setTextColor(ILI9340_WHITE);
-            sprintf(buffer, "button: %c", result);
+            sprintf(buffer, "Result: %d", result);
             tft_writeString(buffer);
-             current_state = INIT; 
+            current_state = INIT; // reset for new calculation
+            uart_print_fsm_state("INIT"); 
+            num1 = 0;             // reset num1
+            num2 = 0;             // reset num2
+            result = 0;           // reset result
         }
         break;
     }

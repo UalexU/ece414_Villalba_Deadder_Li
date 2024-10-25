@@ -1329,6 +1329,30 @@ ts_lcd.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\ts_lcd.c.s
 .PHONY : ts_lcd.c.s
 
+uart.obj: uart.c.obj
+.PHONY : uart.obj
+
+# target to build an object file
+uart.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\uart.c.obj
+.PHONY : uart.c.obj
+
+uart.i: uart.c.i
+.PHONY : uart.i
+
+# target to preprocess a source file
+uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\uart.c.i
+.PHONY : uart.c.i
+
+uart.s: uart.c.s
+.PHONY : uart.s
+
+# target to generate assembly for a file
+uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ts_lcd.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ts_lcd.dir\uart.c.s
+.PHONY : uart.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -1485,6 +1509,9 @@ help:
 	@echo ... ts_lcd.obj
 	@echo ... ts_lcd.i
 	@echo ... ts_lcd.s
+	@echo ... uart.obj
+	@echo ... uart.i
+	@echo ... uart.s
 .PHONY : help
 
 
