@@ -78,4 +78,5 @@ CMakeFiles\ts_lcd.dir\main.c.obj: \
  c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\sched.h \
  c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\machine\types.h \
  c:\progra~1\raspbe~1\picosd~1.1\gcc-ar~1\arm-none-eabi\include\sys\stdio.h \
- C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.h
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\operations.h \
+ C:\Users\villalba\Documents\pico\ece414_Villalba_Deadder_Li\Lab5\uart.h

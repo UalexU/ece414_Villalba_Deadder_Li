@@ -17,6 +17,7 @@ target_sources(ts_lcd PRIVATE
     TFTMaster.c
     glcdfont.c
     operations.c
+    uart.c
     )
 
 target_link_libraries(ts_lcd PRIVATE 
