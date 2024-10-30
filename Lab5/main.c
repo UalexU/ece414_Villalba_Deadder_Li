@@ -69,6 +69,7 @@ int main()
             // Calling FSM with the logic of the calculator
             
 
+
           
 
             // Get button
@@ -79,8 +80,9 @@ int main()
             tft_setCursor(5, 15);
             tft_setTextColor(ILI9340_WHITE);
             sprintf(buffer, "button: %c", get_button(x_value, y_value));
-            
             tft_writeString(buffer);
+
+           
         // else
         // {
         //     tft_setCursor(20, 20);
@@ -90,6 +92,8 @@ int main()
         // }
 
        calculator_fsm(); 
+       //append();
+      
 
         //Drawing calculator
         display();
@@ -103,3 +107,5 @@ int main()
     }
     return 1;
 }
+
+

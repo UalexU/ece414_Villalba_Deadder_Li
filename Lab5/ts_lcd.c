@@ -145,7 +145,7 @@ void display(){
 
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
-                sprintf(buffer, "%c", operand);  // Write operand into the buffer
+                sprintf(buffer, "%c", operand);  // write operand into the buffer
 
                 tft_writeString(buffer);
             }
@@ -174,7 +174,7 @@ void display(){
 
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
-                sprintf(buffer, "%c", operand1);  // Write operand into the buffer
+                sprintf(buffer, "%c", operand1);  // write operand into the buffer
 
                 tft_writeString(buffer);
             }
@@ -203,7 +203,7 @@ void display(){
 
                 tft_setCursor((total_x) + (320 / 5 + 8) / 2 - x_text, (total_y) + (240 / 5) / 2 - y_text);
 
-                sprintf(buffer, "%c", operand2);  // Write operand into the buffer
+                sprintf(buffer, "%c", operand2);  // write operand into the buffer
 
                 tft_writeString(buffer);
             }

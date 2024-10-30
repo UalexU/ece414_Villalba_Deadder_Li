@@ -15,6 +15,8 @@ typedef enum {
     OPERATOR,
     CALCULATOR,
     EQUALS,
+    CLEAR,
+    DISPLAY,
     ERROR
 }state_t;
 

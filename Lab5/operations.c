@@ -15,10 +15,13 @@ int char_convert;
 char current_operator;
 char buffer[30];
 char text_displayed[20]; // String of text
-int result = 0; // so many global variables bro we're cooked
+int result = 0;          // so many global variables bro we're cooked
 state_t current_state;
 int num1 = 0; // initialize num1
 int num2 = 0; // initialize num2
+bool equal_press = false;
+bool clear_press = false;
+bool num2Track =  false;
 
 char get_button(int16_t x, int16_t y)
 {
@@ -60,6 +63,7 @@ char get_button(int16_t x, int16_t y)
         else if (y > 200 && y < 240)
         {
             button_pressed = 'C';
+            clear_press = true;
         }
     }
     else if (x < 230 && x > 161)
@@ -79,6 +83,7 @@ char get_button(int16_t x, int16_t y)
         else if (y > 200 && y < 240)
         {
             button_pressed = '=';
+            equal_press = true;
         }
     }
     else if (x < 308 && x > 236)
@@ -117,118 +122,128 @@ char get_button(int16_t x, int16_t y)
 
     return button_pressed;
 }
+bool num1_stored;
+bool num2_stored;
+
 
 void calculator_init()
 {
     current_state = INIT; // start in init state
     num1 = 0;             // reset num1
     num2 = 0;             // reset num2
-    uart_print_fsm_state("INIT"); 
-    
-
+    uart_print_fsm_state("INIT");
+    num1_stored = false; // reset num1 stored
+    num2_stored = false; // reset num2 stored
 }
 
 void calculator_fsm()
 {
-    
     switch (current_state)
     {
     case INIT:
-    
         if (operand_press)
         {
-            num1 = char_convert; // start building num1
             current_state = NUM;
-            operand_press = false; // reset
-            uart_print_fsm_state("NUM"); 
+            num1_stored = true;
+            num1 = char_convert;
+        }
+        else if (operator_press)
+        {
+           // current_state = OPERATOR;
+          //  num1_stored = false;
+            current_state = INIT;
         }
         break;
 
     case NUM:
-        if (operand_press)
-        {
-            num1 = num1 * 10 + char_convert; // build num1
-            sprintf(text_displayed, "%d", num1); // Add the number to be displayed
-            //uart_debug(text_displayed); 
-            operand_press = false;           // reset
-            
-        }
-        else if (operator_press)
+        if (operator_press && num1_stored)
         {
             current_state = OPERATOR;
-            operator_press = false; // reset
-            uart_print_fsm_state("OPERATOR"); 
+           // num1_stored = false;
+            
         }
         break;
 
     case OPERATOR:
-        if (operand_press)
-        {
-            num2 = char_convert; // start building num2
-            current_state = NUM2;
-            uart_print_fsm_state("NUM2"); 
-            operand_press = false; // reset
-        }
-        break;
-
-    case NUM2:
-        if (operand_press)
-        {
-            num2 = num2 * 10 + char_convert; // build num2
-            operand_press = false;           // reset
-        }
-        else if (operator_press)
-        {
-            current_state = CALCULATOR; 
-            uart_print_fsm_state("CALCULATOR"); 
-            operator_press = false;     // reset
-        }
-        break;
-
-    case CALCULATOR:
-        // ensure we have both numbers and an operator
-        if (current_operator && num1 != 0 && num2 != 0)
-        {
-            switch (current_operator)
+        if (operand_press && num1_stored ) //&& num1_sored
+        { 
+            num2_stored = true;
+           
+            //num2 = char_convert;
+            if (equal_press && num2_stored)
             {
-            case '+':
-                result = num1 + num2;
-                break;
-            case '-':
-                result = num1 - num2;
-                break;
-            case 'x':
-                result = num1 * num2;
-                break;
-            case '/':
-                if (num2 != 0)
-                {
-                    result = num1 / num2;
-                }
-                else
-                {
-                    //work on this 9imlazuy)
-                }
-                break;
+                 num2 = char_convert;
+                 current_state = EQUALS;
+               // num1 = num1 * 10 + num2; //right now this condition isnt being met
             }
-            current_state = EQUALS; // move to equals state
-            uart_print_fsm_state("EQUALS"); 
+         
+        }
+
+        else if (equal_press)
+        {
+            current_state = EQUALS;
         }
         break;
 
     case EQUALS:
-        if (operator_press && current_operator == '=')
+        switch (current_operator)
         {
-            tft_setCursor(20, 20);
-            tft_setTextColor(ILI9340_WHITE);
-            sprintf(buffer, "Result: %d", result);
-            tft_writeString(buffer);
-            current_state = INIT; // reset for new calculation
-            uart_print_fsm_state("INIT"); 
-            num1 = 0;             // reset num1
-            num2 = 0;             // reset num2
-            result = 0;           // reset result
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case 'x':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num1 / num2;
+            break;
         }
+        current_state = DISPLAY;
         break;
+
+    case DISPLAY:
+        tft_setCursor(100, 15); 
+        tft_setTextColor(ILI9340_WHITE);
+        sprintf(buffer, "    %d", result);
+        tft_writeString(buffer);
+        current_state = CLEAR;
+        break;
+
+    case CLEAR:
+        if (clear_press)
+        {
+           
+            tft_setCursor(100, 15);
+            tft_setTextColor(ILI9340_BLACK); 
+            sprintf(buffer, "    "); 
+            tft_writeString(buffer); 
+
+          
+            num1 = 0;
+            num2 = 0;
+            result = 0;
+
+           
+            tft_setTextColor(ILI9340_WHITE); 
+            sprintf(buffer, "    "); 
+            tft_writeString(buffer);
+
+            
+            current_state = INIT; 
+            clear_press = false;
+            operator_press = false; 
+            operand_press = false;
+            equal_press = false; 
+        }
+        break; 
     }
 }
+
+
+
+
+    
+
