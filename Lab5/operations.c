@@ -146,6 +146,7 @@ void calculator_fsm()
             current_state = NUM;
             num1_stored = true;
             num1 = char_convert;
+            operand_press = false;
         }
         else if (operator_press)
         {
@@ -159,33 +160,33 @@ void calculator_fsm()
         if (operator_press && num1_stored)
         {
             current_state = OPERATOR;
+            current_operator = current_operator;
+            operator_press = false;
            // num1_stored = false;
             
         }
         break;
 
     case OPERATOR:
-        if (operand_press && num1_stored ) //&& num1_sored
+        if (operand_press && num1_stored) //&& num1_sored only goes to this state if num1_stored and operator press will this happen if i press operator first?
         { 
+            num2 = char_convert;
             num2_stored = true;
+           operand_press = false;
            
             //num2 = char_convert;
-            if (equal_press && num2_stored)
-            {
-                 num2 = char_convert;
-                 current_state = EQUALS;
-               // num1 = num1 * 10 + num2; //right now this condition isnt being met
-            }
-         
         }
-
-        else if (equal_press)
-        {
+        else if(equal_press && num2_stored) {
             current_state = EQUALS;
+            equal_press = false;
         }
+         
         break;
 
+        
+
     case EQUALS:
+    if(num2_stored){
         switch (current_operator)
         {
         case '+':
@@ -198,11 +199,16 @@ void calculator_fsm()
             result = num1 * num2;
             break;
         case '/':
-            result = num1 / num2;
-            break;
+          if(num2 != 0) 
+          result = num1/num2;
+          else
+
+          result = 0;
+        break;
         }
         current_state = DISPLAY;
-        break;
+    }
+    break;
 
     case DISPLAY:
         tft_setCursor(100, 15); 
@@ -225,11 +231,12 @@ void calculator_fsm()
             num1 = 0;
             num2 = 0;
             result = 0;
+            num1_stored = false;
+            num2_stored = false;
+
 
            
-            tft_setTextColor(ILI9340_WHITE); 
-            sprintf(buffer, "    "); 
-            tft_writeString(buffer);
+         
 
             
             current_state = INIT; 
