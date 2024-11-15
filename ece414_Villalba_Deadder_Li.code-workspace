@@ -32,7 +32,14 @@
             "stdint.h": "c",
             "touchscreen.h": "c",
             "operations.h": "c",
-            "xstring": "c"
+            "xstring": "c",
+            "gpio.h": "c",
+            "pwm_methods.h": "c",
+            "pwm.h": "c",
+            "dreq.h": "c",
+            "intctrl.h": "c",
+            "xiosbase": "c",
+            "xlocale": "c"
         }
     }
 }
