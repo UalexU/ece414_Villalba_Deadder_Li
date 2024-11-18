@@ -16,22 +16,6 @@ int p;                              // p proportional-gain Set the PID proportio
 int i;                              // i integral-gain Set the PID integral gain.
 int d;                              // d derivative-gain Set the PID derivative gain.
 
-// All commands shall be terminated by a carriage return ('\r') character.
-
-/*Integ = Integ + Error;
-if (Integ > IntegMax) {
-   Integ = IntegMax;
-} else if (Integ < IntegMin) {
-   Integ = IntegMin;
-}
-
-
-Actuator = Kp*Error + KI*Integ - Kd*Deriv
-
-
-
-
-*/
 int check_rpm(int rpm)
 {
   if (rpm > 2700)
@@ -44,10 +28,22 @@ int check_rpm(int rpm)
   }
   return rpm;
 }
-signed char Ki = 0;
+signed char Ki = 1;
 signed char Ko = 0;
 signed char Kp = 1;
-signed char Kd = 0;
+signed char Kd = 2;
+
+// Function to calculate PID coefficients based on Ku and Pu
+void calculate_pid_coefficients(float Ku, float Pu)
+{
+    Kp = Ku / 1.7;
+    Ki = (Kp * 2) / Pu;
+    Kd = (Kp * Pu) / 8;
+
+    printf("Calculated PID Coefficients:\n");
+    printf("Kp: %.2f, Ki: %.2f, Kd: %.2f\n", Kp, Ki, Kd);
+}
+
 // When stead state found with kp then rename it as ku and use the following equation
 // Oscillation period is Pu
 // int Kp = Ku / 1.7, Ki = (Kp * 2) / Pu, Kd = (Kp * Pu) / 8;
@@ -67,8 +63,8 @@ int control_system()
   integral += error;
 
   // Clamp the integral to avoid windup
-  int integ_max = 100; // Adjust these limits as needed
-  int integ_min = -100;
+  int integ_max = 1000; // Adjust these limits as needed
+  int integ_min = 0;
   if (integral > integ_max)
   {
     integral = integ_max;
@@ -79,10 +75,11 @@ int control_system()
   }
 
   // Calculate the PID output
-  int pwm_factored_level = (Kp * error) + (Ki * integral) - (Kd * derivative);
+  int pwm_factored_level = (Kp * error)+ (Ki * integral)  - (Kd * derivative);
 
   // Adjust and clamp the PWM level
   pwm_level = pwm_level + pwm_factored_level;
+  
   if (pwm_level > 0xFFFF)
   {
     pwm_level = 0xFFFF;
@@ -91,12 +88,13 @@ int control_system()
   {
     pwm_level = 0;
   }
-
+  pwm_pin_set_level(pwm_level);
   // Update previous values
   rpm_prev = rpm;
   error_prev = error;
 
   sleep_ms(1000); // Update every second
+
 }
 
 enum States
