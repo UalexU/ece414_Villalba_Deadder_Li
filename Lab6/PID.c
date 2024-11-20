@@ -6,32 +6,15 @@
 #include "ic.h"
 #include "timer.h"
 
-
 uint16_t pwm_level = 0x8000;
 
 // Kp = Ku / 1.7, Ki = (Kp * 2) / Pu, Kd = (Kp * Pu) / 8;
 
-static int target_rpm = 2000; // target-rate Set the desired rotation speed in RPM.
-int p;                              // p proportional-gain Set the PID proportional gain.
-int i;                              // i integral-gain Set the PID integral gain.
-int d;                              // d derivative-gain Set the PID derivative gain.
+int target_rpm = 2000; // target-rate Set the desired rotation speed in RPM.
+int p;                 // p proportional-gain Set the PID proportional gain.
+int i;                 // i integral-gain Set the PID integral gain.
+int d;                 // d derivative-gain Set the PID derivative gain.
 
-// All commands shall be terminated by a carriage return ('\r') character.
-
-/*Integ = Integ + Error;
-if (Integ > IntegMax) {
-   Integ = IntegMax;
-} else if (Integ < IntegMin) {
-   Integ = IntegMin;
-}
-
-
-Actuator = Kp*Error + KI*Integ - Kd*Deriv
-
-
-
-
-*/
 int check_rpm(int rpm)
 {
   if (rpm > 2700)
@@ -44,18 +27,34 @@ int check_rpm(int rpm)
   }
   return rpm;
 }
-signed char Ki = 0;
-signed char Ko = 0;
-signed char Kp = 1;
-signed char Kd = 0;
+int Ki = 0;
+int Ku = 4;
+float Pu;
+int Kp = 3;
+int Kd = 0;
+
+// Function to calculate PID coefficients based on Ku and Pu
+void calculate_pid_coefficients()
+{
+
+  Pu = 60 / ((float)target_rpm);
+  printf("Calculated PID Coefficients:\n");
+  printf("Ku: %d, Pu: %.2f \n", Ku, Pu);
+  Kp = (float)Ku / 1.7;
+  Ki = (Kp * 2) / Pu;
+  Kd = (Kp * Pu) / 8.0;
+
+  printf("Kp: %.2f, Ki: %.2f, Kd: %.2f\n", Kp, Ki, Kd);
+}
+
 // When stead state found with kp then rename it as ku and use the following equation
 // Oscillation period is Pu
 // int Kp = Ku / 1.7, Ki = (Kp * 2) / Pu, Kd = (Kp * Pu) / 8;
 int control_system()
 {
-  static int rpm_prev = 0;   // Persistent previous RPM value
-  static int integral = 0;   // Persistent integral term
-  static int error_prev = 0; // Persistent previous error
+  static int rpm_prev = 0; // Persistent previous RPM value
+  static int integral = 0; // Persistent integral term
+  static int error_prev = 0;
 
   uint32_t rpm = ic_getrpm(); // Get the current RPM
   printf("rpm=%u\n", rpm);
@@ -67,8 +66,8 @@ int control_system()
   integral += error;
 
   // Clamp the integral to avoid windup
-  int integ_max = 100; // Adjust these limits as needed
-  int integ_min = -100;
+  int integ_max = 250;
+  int integ_min = -250;
   if (integral > integ_max)
   {
     integral = integ_max;
@@ -79,10 +78,17 @@ int control_system()
   }
 
   // Calculate the PID output
+
   int pwm_factored_level = (Kp * error) + (Ki * integral) - (Kd * derivative);
+  // Damping factor for oscillations
+  if (abs(error) < 100)
+  {                            // Adjust threshold as needed
+    pwm_factored_level *= 0.8; // Reduce response slightly for small errors
+  }
 
   // Adjust and clamp the PWM level
   pwm_level = pwm_level + pwm_factored_level;
+
   if (pwm_level > 0xFFFF)
   {
     pwm_level = 0xFFFF;
@@ -91,12 +97,12 @@ int control_system()
   {
     pwm_level = 0;
   }
-
+  pwm_pin_set_level(pwm_level);
   // Update previous values
   rpm_prev = rpm;
   error_prev = error;
 
-  sleep_ms(1000); // Update every second
+  sleep_ms(500); // Update every second
 }
 
 enum States
@@ -112,6 +118,7 @@ void Tick()
   case Init: // Perform initialization logic (e.g., reset variables)
     pwd_init();
     ic_init();
+    //calculate_pid_coefficients();
     // Transition to Control state after initialization
     state = Ctrl;
     break;
@@ -129,56 +136,91 @@ void Tick()
 }
 
 // Function to process incoming UART commands
-void process_uart_command(char* linebuf) {
-    int rpm, gain;
+void process_uart_command(char *linebuf)
+{
+  int rpm, gain;
 
-    // Skip leading spaces (useful if there's space between the command and the number)
-    while (*linebuf == ' ') {
-        linebuf++;
-    }
+  // Skip leading spaces (useful if there's space between the command and the number)
+  while (*linebuf == ' ')
+  {
+    linebuf++;
+  }
 
-    if (linebuf[0] == 's') {  // Set target RPM
-        if (sscanf(linebuf + 1, "%d", &rpm) == 1) {  // Skip one character (the command letter)
-            target_rpm = check_rpm(rpm);
-            printf("Target RPM set to: %d\n", target_rpm);
-        } else {
-            printf("Invalid RPM value.\n");
-        }
+  if (linebuf[0] == 's')
+  { // Set target RPM
+    if (sscanf(linebuf + 1, "%d", &rpm) == 1)
+    { // Skip one character (the command letter)
+      target_rpm = check_rpm(rpm);
+      //calculate_pid_coefficients();
+      printf("Target RPM set to: %d\n", target_rpm);
     }
-    else if (linebuf[0] == 'p') {  // Set proportional gain
-        if (sscanf(linebuf + 1, "%d", &gain) == 1) {
-            Kp = gain;
-            printf("Proportional gain set to: %d\n", Kp);
-        } else {
-            printf("Invalid proportional gain value.\n");
-        }
+    else
+    {
+      printf("Invalid RPM value.\n");
     }
-    else if (linebuf[0] == 'i') {  // Set integral gain
-        if (sscanf(linebuf + 1, "%d", &gain) == 1) {
-            Ki = gain;
-            printf("Integral gain set to: %d\n", Ki);
-        } else {
-            printf("Invalid integral gain value.\n");
-        }
+  }
+  else if (linebuf[0] == 'p')
+  { // Set proportional gain
+    if (sscanf(linebuf + 1, "%d", &gain) == 1)
+    {
+      Kp = gain;
+      //calculate_pid_coefficients();
+      printf("Proportional gain set to: %d\n", Kp);
     }
-    else if (linebuf[0] == 'd') {  // Set derivative gain
-        if (sscanf(linebuf + 1, "%d", &gain) == 1) {
-             Kd  = gain;
-            printf("Derivative gain set to: %d\n", Kd);
-        } else {
-            printf("Invalid derivative gain value.\n");
-        }
+    else
+    {
+      printf("Invalid proportional gain value.\n");
     }
-    else {
-        printf("Invalid command.\n");
+  }
+  else if (linebuf[0] == 'k')
+  { // Set Ku gain
+    if (sscanf(linebuf + 1, "%d", &gain) == 1)
+    {
+      Ku = gain;
+      //calculate_pid_coefficients();
+      printf("Proportional gain set to: %d\n", Ku);
     }
+    else
+    {
+      printf("Invalid proportional gain value.\n");
+    }
+  }
+  else if (linebuf[0] == 'i')
+  { // Set integral gain
+    if (sscanf(linebuf + 1, "%d", &gain) == 1)
+    {
+      Ki = gain;
+      //calculate_pid_coefficients();
+      printf("Integral gain set to: %d\n", Ki);
+    }
+    else
+    {
+      printf("Invalid integral gain value.\n");
+    }
+  }
+  else if (linebuf[0] == 'd')
+  { // Set derivative gain
+    if (sscanf(linebuf + 1, "%d", &gain) == 1)
+    {
+      Kd = gain;
+      //calculate_pid_coefficients();
+      printf("Derivative gain set to: %d\n", Kd);
+    }
+    else
+    {
+      printf("Invalid derivative gain value.\n");
+    }
+  }
+  else
+  {
+    printf("Invalid command.\n");
+  }
 }
-
 
 int main()
 {
   char linebuf[100];
-  int line_index = 0;  // Index for the buffer
+  int line_index = 0; // Index for the buffer
   stdio_init_all();
   while (1)
   {
