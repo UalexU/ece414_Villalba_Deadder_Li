@@ -1,0 +1,147 @@
+
+///half bridge right side
+#define AIN1 16   //1A back right
+#define AIN2 26   //2A  back right
+#define BIN1 19 //4A   front right
+#define BIN2 22  //3A   front right
+// Half bridge left side 
+#define CIN1 10 //1A  front left
+#define CIN2 11 //2A   front left
+#define DIN1 12//4A back left
+#define DIN2 13 //3A  back left
+// PWM Half bridge left
+#define EN1_2 14 //1,2EN pwm 1
+
+// PWM Half bridge right
+#define PWMA_B 17 //1,2EN pwm 1
+  
+
+
+void setup() {
+  // PWM PINS
+  pinMode(EN1_2, OUTPUT); //set pins to output
+  pinMode(PWMA_B, OUTPUT); 
+
+  // Direction pins
+  pinMode(CIN1, OUTPUT);
+  pinMode(CIN2, OUTPUT);
+  pinMode(DIN2, OUTPUT);
+  pinMode(DIN1, OUTPUT);
+  
+
+  pinMode(AIN1, OUTPUT);
+  pinMode(AIN2, OUTPUT);
+  pinMode(BIN1, OUTPUT);
+  pinMode(BIN2, OUTPUT);
+ 
+  
+ 
+  digitalWrite(EN1_2, HIGH); 
+  digitalWrite(PWMA_B, HIGH); 
+
+
+}
+
+void motorForward(int speed) {
+  // Set PWM signals for both motor drivers
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255)); 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255)); 
+
+  // set direction for the front motors (controlled by Adafruit)
+  digitalWrite(AIN1, HIGH); // Front-left motor forward
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, HIGH); // Front-right motor forward
+  digitalWrite(BIN2, LOW);
+
+  // set direction for the back motors (controlled by the half-bridge)
+  digitalWrite(CIN1, HIGH); 
+  digitalWrite(CIN2, LOW);
+  digitalWrite(DIN1, HIGH); //back left
+  digitalWrite(DIN2, LOW);
+}
+
+
+
+void motorBackward(int speed) {
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255)); 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255)); 
+    //move forward?
+  digitalWrite(CIN1, LOW); 
+  digitalWrite(CIN2, HIGH); 
+  digitalWrite(DIN1, LOW); 
+  digitalWrite(DIN2, HIGH); 
+
+  digitalWrite(AIN1, LOW);
+  digitalWrite(AIN2, HIGH);
+  digitalWrite(BIN1, LOW);
+  digitalWrite(BIN2, HIGH);
+}
+
+void motorLeft(int speed) {
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255));  //turn off back right 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255));
+
+  digitalWrite(AIN1, LOW); // back right motor OFF
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, HIGH); // Front-right motor forward
+  digitalWrite(BIN2, LOW);
+
+  digitalWrite(CIN1, HIGH); 
+  digitalWrite(CIN2, LOW); //back left motor forward
+  digitalWrite(DIN1, HIGH); //back right motor forward
+  digitalWrite(DIN2, LOW);
+ 
+
+
+
+}
+
+
+void motorRight(int speed) {
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255));  //turn off back right 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255));
+
+  digitalWrite(AIN1, HIGH); 
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, HIGH); // Front-right motor forward
+  digitalWrite(BIN2, LOW);
+
+  digitalWrite(CIN1, HIGH); 
+  digitalWrite(CIN2, LOW); //front left left motor forward
+  digitalWrite(DIN1, LOW); //back left
+  digitalWrite(DIN2, LOW);
+ 
+
+}
+ 
+
+
+
+void loop() {
+motorForward(100);
+delay(5000);
+motorBackward(100);
+delay(5000);
+motorLeft(100);
+delay(5000);
+motorRight(100);
+delay(5000);
+
+
+
+
+
+  
+ 
+
+
+
+  // put your main code here, to run repeatedly:
+
+}
+
+
+
+
+
+
