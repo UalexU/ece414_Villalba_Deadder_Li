@@ -1,0 +1,237 @@
+
+///half bridge right side
+#define AIN1 16   //1A back right
+#define AIN2 26   //2A  back right
+#define BIN1 19 //4A   front right
+#define BIN2 22  //3A   front right
+// Half bridge left side 
+#define CIN1 10 //1A  front left
+#define CIN2 11 //2A   front left
+#define DIN1 12//4A back left
+#define DIN2 13 //3A  back left
+// PWM Half bridge left
+#define EN1_2 14 //1,2EN pwm 1
+
+// PWM Half bridge right
+#define PWMA_B 17 //1,2EN pwm 1
+  
+
+//proximity sensor
+#define TRIG_PIN 15  // trigger pin connected to GPIO 15
+#define ECHO_PIN 18 // echo pin connected to GPIO 14
+#define LED_PIN 25   // onboard LED pin
+  
+
+
+void setup() {
+  // PWM PINS
+  pinMode(EN1_2, OUTPUT); //set pins to output
+  pinMode(PWMA_B, OUTPUT); 
+
+  // Direction pins
+  pinMode(CIN1, OUTPUT);
+  pinMode(CIN2, OUTPUT);
+  pinMode(DIN2, OUTPUT);
+  pinMode(DIN1, OUTPUT);
+  
+
+  pinMode(AIN1, OUTPUT);
+  pinMode(AIN2, OUTPUT);
+  pinMode(BIN1, OUTPUT);
+  pinMode(BIN2, OUTPUT);
+ 
+  
+ 
+  digitalWrite(EN1_2, HIGH); 
+  digitalWrite(PWMA_B, HIGH); 
+
+  //proximity sensor
+   Serial.begin(115200);  // Initialize serial communication at 115200 baud rate
+    setup_ultrasonic_sensor();  // Setup the sensor and LED
+
+
+}
+
+
+float measure_distance() {
+    // Send a 10us pulse to trigger the ultrasonic sensor
+    gpio_put(TRIG_PIN, 1);
+    sleep_us(10);
+    gpio_put(TRIG_PIN, 0);
+    
+    // Wait for the echo to go high
+    while (gpio_get(ECHO_PIN) == 0) {}  // Wait for the start of the pulse
+    uint32_t start_time = time_us_32();
+
+    // Wait for the echo to go low (end of pulse)
+    while (gpio_get(ECHO_PIN) == 1) {}  // Wait for the end of the pulse
+    uint32_t travel_time = time_us_32() - start_time;
+
+    // Debug: Print the travel time to check the sensor response
+    printf("Travel Time: %lu us\n", travel_time);
+
+    // Calculate distance in cm (speed of sound = 34300 cm/s)
+    float distance = (travel_time / 2.0) / 29.1; // Divide by 29.1 to convert to cm
+
+    return distance;
+}
+
+void setup_ultrasonic_sensor() {
+    gpio_init(TRIG_PIN);  
+    gpio_init(ECHO_PIN);  
+    gpio_init(LED_PIN);   
+    gpio_set_dir(TRIG_PIN, GPIO_OUT); 
+    gpio_set_dir(ECHO_PIN, GPIO_IN);  
+    gpio_set_dir(LED_PIN, GPIO_OUT); 
+}
+
+
+
+void motorForward(int speed) {
+  // Set PWM signals for both motor drivers
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255)); 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255)); 
+
+  // set direction for the front motors (controlled by Adafruit)
+  digitalWrite(AIN1, HIGH); // Front-left motor forward
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, HIGH); // Front-right motor forward
+  digitalWrite(BIN2, LOW);
+
+  // set direction for the back motors (controlled by the half-bridge)
+  digitalWrite(CIN1, HIGH); 
+  digitalWrite(CIN2, LOW);
+  digitalWrite(DIN1, HIGH); //back left
+  digitalWrite(DIN2, LOW);
+}
+
+
+
+void motorBackward(int speed) {
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255)); 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255)); 
+    //move forward?
+  digitalWrite(CIN1, LOW); 
+  digitalWrite(CIN2, HIGH); 
+  digitalWrite(DIN1, LOW); 
+  digitalWrite(DIN2, HIGH); 
+
+  digitalWrite(AIN1, LOW);
+  digitalWrite(AIN2, HIGH);
+  digitalWrite(BIN1, LOW);
+  digitalWrite(BIN2, HIGH);
+}
+
+void motorLeft(int speed) {
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255));  //turn off back right 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255));
+
+  digitalWrite(AIN1, LOW); // back right motor OFF
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, LOW); // Front-right motor OFF
+  digitalWrite(BIN2, LOW);
+
+  digitalWrite(CIN1, HIGH); 
+  digitalWrite(CIN2, LOW); //back left motor forward
+  digitalWrite(DIN1, HIGH); //back right motor forward
+  digitalWrite(DIN2, LOW);
+ 
+
+
+
+}
+
+
+void motorRight(int speed) {
+  analogWrite(EN1_2, map(speed, 0, 100, 0, 255));  //turn off back right 
+  analogWrite(PWMA_B, map(speed, 0, 100, 0, 255));
+
+  digitalWrite(AIN1, HIGH); 
+  digitalWrite(AIN2, LOW);
+  digitalWrite(BIN1, HIGH); // Front-right motor forward
+  digitalWrite(BIN2, LOW);
+
+  digitalWrite(CIN1, LOW); 
+  digitalWrite(CIN2, LOW); //front left left motor forward
+  digitalWrite(DIN1, LOW); //back left
+  digitalWrite(DIN2, LOW);
+ 
+
+}
+ 
+
+
+
+void loop() {
+/*motorForward(100);
+delay(5000);
+motorBackward(100);
+delay(5000);
+motorLeft(100);
+delay(5000);
+motorRight(100);
+delay(5000);
+*/
+float distance = measure_distance();
+
+    // Print the measured distance
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+
+    // If the distance is less than 20 cm, turn on the LED
+    if (distance < 30.0) {
+        gpio_put(LED_PIN, 1);  // Turn on the LED
+        motorForward(0);
+        delay(2000);
+        motorBackward(100);
+        delay(2000);
+        int direction = random(0,2);
+        if(direction == 0) {
+          motorLeft(80);
+          delay(1000);
+          motorForward(100);
+          delay(2000);
+        } else if(direction == 2) {
+           motorRight(100);
+          delay(1000);
+          motorForward(80);
+          delay(2000);
+
+        } else {}
+          motorRight(80);
+          delay(1000);
+          motorForward(100);
+          delay(2000);
+        } else {
+        gpio_put(LED_PIN, 0);
+        motorForward(100);  // Turn off the LED
+    }
+
+    delay(500);  // Wait for 500ms before measuring again
+}
+
+
+
+
+
+  
+ 
+
+
+
+  // put your main code here, to run repeatedly:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
